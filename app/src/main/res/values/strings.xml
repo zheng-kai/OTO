@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">OTOApplication</string>
+    <string name="app_name">i-信鸽</string>
+    <string name="help_btn">Help</string>
 </resources>
