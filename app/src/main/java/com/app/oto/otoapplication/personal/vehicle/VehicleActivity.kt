@@ -12,6 +12,7 @@ class VehicleActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.personal_vehicle_layout)
         super.onCreate(savedInstanceState)
-
+        setSupportActionBar(findViewById(R.id.personal_toolbar))
+        supportActionBar?.title = "顺丰私家车认证"
     }
 }

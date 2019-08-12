@@ -7,6 +7,7 @@ import android.view.MenuItem
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.personal.base.BaseActivity
 import com.app.oto.otoapplication.personal.base.getMyIntent
+import com.app.oto.otoapplication.personal.friend.FriendActivity
 import com.app.oto.otoapplication.personal.help.HelpActivity
 import com.app.oto.otoapplication.personal.vehicle.VehicleActivity
 
@@ -28,7 +29,7 @@ class PersonalActivity : BaseActivity(), MainContract.View {
             startActivity(getMyIntent(this, HelpActivity::class.java))
         }
         findViewById<CardView>(R.id.friend).setOnClickListener {
-            startActivity(getMyIntent(this, HelpActivity::class.java))
+            startActivity(getMyIntent(this, FriendActivity::class.java))
         }
     }
 
