@@ -8,6 +8,7 @@ import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.personal.base.BaseActivity
 import com.app.oto.otoapplication.personal.base.getMyIntent
 import com.app.oto.otoapplication.personal.help.HelpActivity
+import com.app.oto.otoapplication.personal.vehicle.VehicleActivity
 
 class PersonalActivity : BaseActivity(), MainContract.View {
 
@@ -21,9 +22,9 @@ class PersonalActivity : BaseActivity(), MainContract.View {
             startActivity(getMyIntent(this, HelpActivity::class.java))
         }
         findViewById<CardView>(R.id.verify_vehicle).setOnClickListener {
-            startActivity(getMyIntent(this, HelpActivity::class.java))
+            startActivity(getMyIntent(this, VehicleActivity::class.java))
         }
-        findViewById<CardView>(R.id.verify_vehicle).setOnClickListener {
+        findViewById<CardView>(R.id.verify_human).setOnClickListener {
             startActivity(getMyIntent(this, HelpActivity::class.java))
         }
         findViewById<CardView>(R.id.friend).setOnClickListener {
