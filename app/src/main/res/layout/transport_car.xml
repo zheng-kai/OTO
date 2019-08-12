@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:background="@color/colorOTOBackground"
         android:layout_width="match_parent"
@@ -11,6 +11,8 @@
             android:layout_width="match_parent"
             android:layout_height="48dp">
         <ImageView
+                android:id="@+id/img_car_back"
+                android:background="@color/colorOTOWhite"
                 android:layout_marginStart="22dp"
                 android:layout_width="8dp"
                 android:layout_height="15dp"/>
@@ -23,25 +25,74 @@
                 android:textColor="@color/colorOTOWhite"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
-        <ImageView android:layout_width="16dp"
-                   android:layout_height="15dp"
-                   android:layout_marginEnd="22dp"/>
+        <ImageView
+                android:id="@+id/img_car_scan"
+                android:layout_gravity="end|center_vertical"
+                android:src="@mipmap/scan"
+                android:layout_width="16dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="22dp"/>
     </android.support.v7.widget.Toolbar>
-    <RelativeLayout
+    <android.support.v7.widget.CardView
+            android:elevation="4dp"
             android:layout_width="match_parent"
-            android:layout_height="41dp">
-        <ImageView
-                android:layout_marginStart="23dp"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/search"
-                android:layout_width="13dp"
-                android:layout_height="13dp"/>
-        <ImageView
-                android:layout_marginEnd="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/microphone"
-                android:layout_width="13dp"
-                android:layout_height="13dp"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content">
+        <RelativeLayout
+                android:background="@color/colorOTOWhite"
+                android:layout_width="match_parent"
+                android:layout_height="41dp">
+            <ImageView
+                    android:layout_marginStart="23dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/search"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"/>
+            <ImageView
+                    android:layout_marginEnd="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/microphone"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:textSize="13sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="13dp"
+                    android:text="附近的Ai空间："
+                    android:textColor="@color/colorOTOBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.baidu.mapapi.map.MapView
+                    android:id="@+id/map_transport_car"
+                    android:clickable="true"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginEnd="17dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="189dp"/>
+            <TextView
+                    android:text="点击Ai空间查看运输详情"
+                    android:textColor="@color/colorOTOBlack"
+                    android:textSize="13sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginBottom="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

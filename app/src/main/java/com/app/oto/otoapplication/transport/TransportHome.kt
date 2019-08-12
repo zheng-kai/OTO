@@ -1,5 +1,6 @@
 package com.app.oto.otoapplication.transport
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
@@ -13,6 +14,9 @@ class TransportHome :AppCompatActivity(){
         setContentView(R.layout.home_activity_transport)
         transport_home_navigation.apply {
             btn_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
+        }
+        cd_car.setOnClickListener {
+            startActivity(Intent(this,TransportCar::class.java))
         }
     }
 }
