@@ -8,18 +8,21 @@ import com.app.oto.otoapplication.R
 import kotlinx.android.synthetic.main.home_activity_transport.*
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 
-class TransportHome :AppCompatActivity(){
+class TransportHome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity_transport)
         transport_home_navigation.apply {
-            btn_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
+            btn_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
         }
         cd_car.setOnClickListener {
-            startActivity(Intent(this,TransportCar::class.java))
+            startActivity(Intent(this, TransportCar::class.java))
         }
-        cd_crowdsource.setOnClickListener{
-            startActivity(Intent(this,TransportCrowdsource::class.java))
+        cd_crowdsource.setOnClickListener {
+            startActivity(Intent(this, TransportCrowdsource::class.java))
+        }
+        cd_ordered.setOnClickListener {
+            startActivity(Intent(this, TransportOrdered::class.java))
         }
     }
 }

@@ -76,7 +76,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     <com.baidu.mapapi.map.MapView
-                            android:id="@+id/map_transport_order"
+                            android:id="@+id/map_transport_ordered"
                             android:clickable="true"
                             android:layout_marginBottom="23dp"
                             android:layout_marginTop="14dp"
@@ -109,7 +109,7 @@
                             android:layout_height="wrap_content"/>
                     <android.support.v7.widget.RecyclerView
                             android:layout_marginTop="10dp"
-                            android:id="@+id/rec_car_transport_order"
+                            android:id="@+id/rec_car_transport_ordered"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
 
@@ -138,7 +138,7 @@
                             android:layout_height="wrap_content"/>
                     <android.support.v7.widget.RecyclerView
                             android:layout_marginTop="10dp"
-                            android:id="@+id/rec_crowdsource_transport_order"
+                            android:id="@+id/rec_crowdsource_transport_ordered"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
 

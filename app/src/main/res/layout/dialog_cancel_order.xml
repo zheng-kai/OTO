@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:paddingTop="25dp"
+        android:paddingStart="26dp"
+        android:paddingEnd="26dp"
+        android:background="@color/white"
+        android:layout_width="191dp"
+        android:layout_height="108dp">
+    <TextView
+            android:id="@+id/text_dialog"
+            android:textSize="12sp"
+            android:textColor="@color/colorOTORed"
+            android:text="如果因为自身原因取消订
+单，将在一天内无法接单"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <Button
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/text_dialog"
+            android:textSize="8dp"
+            android:id="@+id/dialog_confirm"
+            android:text="确定"
+            android:textColor="@drawable/button_text_color"
+            android:background="@drawable/button_background"
+            android:layout_width="34dp"
+            android:layout_height="11dp"/>
+    <Button
+            android:text="取消"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/text_dialog"
+            android:textSize="8sp"
+            android:id="@+id/dialog_cancel"
+            android:textColor="@drawable/button_text_color"
+            android:background="@drawable/button_background"
+            android:layout_width="34dp"
+            android:layout_height="11dp"/>
+</android.support.constraint.ConstraintLayout>
