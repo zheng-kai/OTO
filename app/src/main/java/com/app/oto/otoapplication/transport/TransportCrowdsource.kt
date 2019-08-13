@@ -3,6 +3,8 @@ package com.app.oto.otoapplication.transport
 import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_crowdsource.*
@@ -16,6 +18,12 @@ class TransportCrowdsource : AppCompatActivity() {
         }
         transport_crowdsource_navigation.apply {
             btn_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
+        }
+        rec_transport_crowdsource.layoutManager = LinearLayoutManager(this)
+        rec_transport_crowdsource.withItems {
+            for(i in 1..5){
+                add("xxxxx","A","$i 元")
+            }
         }
     }
     override fun onResume() {
