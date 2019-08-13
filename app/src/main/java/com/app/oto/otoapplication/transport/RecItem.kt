@@ -1,7 +1,6 @@
 package com.app.oto.otoapplication.transport
 
 import android.support.v7.widget.RecyclerView
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -9,10 +8,10 @@ import android.widget.TextView
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.app.oto.otoapplication.R
-import com.app.oto.otoapplication.commons.layoutInflater
 import kotlinx.android.synthetic.main.rec_item_order.view.*
 import kotlinx.android.synthetic.main.rec_item_ordered_car.view.*
 import kotlinx.android.synthetic.main.rec_item_ordered_crowdsource.view.*
+import org.jetbrains.anko.layoutInflater
 
 class OrderItem(val userInfo: String, val size: String, val price: String) : Item {
     companion object Controller : ItemController {
