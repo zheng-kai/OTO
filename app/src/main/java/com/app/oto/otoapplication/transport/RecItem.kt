@@ -1,6 +1,8 @@
 package com.app.oto.otoapplication.transport
 
+import android.app.AlertDialog
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -8,6 +10,7 @@ import android.widget.TextView
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.app.oto.otoapplication.R
+import kotlinx.android.synthetic.main.dialog_cancel_order.view.*
 import kotlinx.android.synthetic.main.rec_item_order.view.*
 import kotlinx.android.synthetic.main.rec_item_ordered_car.view.*
 import kotlinx.android.synthetic.main.rec_item_ordered_crowdsource.view.*
@@ -74,7 +77,16 @@ class OrderedCarItem(val boxId: String, val destination: String, val price: Stri
                 }
             }
             holder.cancelBtn.setOnClickListener {
-
+                val view = LayoutInflater.from(holder.itemView.context).inflate(R.layout.dialog_cancel_order,null)
+                val dialog =  AlertDialog.Builder(holder.itemView.context).setView(view).create()
+                view.dialog_cancel.setOnClickListener {
+                    dialog.dismiss()
+                }
+                view.dialog_confirm.setOnClickListener {
+                    dialog.dismiss()
+                    // 撤销接单
+                }
+                dialog.show()
             }
         }
 
@@ -122,7 +134,16 @@ class OrderedCrowdsourceItem(val boxId: String, val phone: String, val destinati
                 }
             }
             holder.cancelBtn.setOnClickListener {
-
+                val view = LayoutInflater.from(holder.itemView.context).inflate(R.layout.dialog_cancel_order,null)
+                val dialog =  AlertDialog.Builder(holder.itemView.context).setView(view).create()
+                view.dialog_cancel.setOnClickListener {
+                    dialog.dismiss()
+                }
+                view.dialog_confirm.setOnClickListener {
+                    dialog.dismiss()
+                    // 撤销接单
+                }
+                dialog.show()
             }
             holder.callBtn.setOnClickListener {
 
