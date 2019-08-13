@@ -30,6 +30,7 @@
         </activity>
         <!--<activity android:name=".transport.TransportHome"/>-->
         <activity android:name=".transport.TransportCar"/>
+        <activity android:name=".transport.TransportCrowdsource"/>
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
                 android:value="T0yzhVnfSpi4obUtH80st6fplWXRM8uu"/>

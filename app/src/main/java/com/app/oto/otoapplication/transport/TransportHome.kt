@@ -18,5 +18,8 @@ class TransportHome :AppCompatActivity(){
         cd_car.setOnClickListener {
             startActivity(Intent(this,TransportCar::class.java))
         }
+        cd_crowdsource.setOnClickListener{
+            startActivity(Intent(this,TransportCrowdsource::class.java))
+        }
     }
 }
