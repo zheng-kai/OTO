@@ -16,7 +16,7 @@ class FriendAdapter(context: Context) : BaseRVAdapter(context) {
 
     override fun getItemViewType(position: Int): Int {
         return when (position) {
-            2 -> ADD_TYPE
+            11 -> ADD_TYPE
             else -> MAIN_TYPE
         }
     }
@@ -24,8 +24,8 @@ class FriendAdapter(context: Context) : BaseRVAdapter(context) {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         lateinit var viewHolder: RecyclerView.ViewHolder
         when (viewType) {
-            MAIN_TYPE -> viewHolder = MainHolder(layoutInflater.inflate(R.layout.human_rv_card, viewGroup, false))
-            ADD_TYPE -> viewHolder = AddHolder(layoutInflater.inflate(R.layout.human_rv_add, viewGroup, false))
+            MAIN_TYPE -> viewHolder = MainHolder(layoutInflater.inflate(R.layout.friend_rv_card, viewGroup, false))
+            ADD_TYPE -> viewHolder = AddHolder(layoutInflater.inflate(R.layout.friend_rv_add, viewGroup, false))
         }
         return viewHolder
     }
@@ -37,7 +37,7 @@ class FriendAdapter(context: Context) : BaseRVAdapter(context) {
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return 12
     }
 
     inner class MainHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -1,15 +1,19 @@
 package com.app.oto.otoapplication.personal.help
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.personal.base.BaseActivity
 
-class HelpActivity : AppCompatActivity() {
+class HelpActivity : BaseActivity() {
+    override fun initView() {
+    }
+
+    override fun initToolbar() {
+        supportActionBar?.title = "帮助"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         setContentView(R.layout.personal_help_layout)
-        setSupportActionBar(findViewById(R.id.personal_toolbar))
-        supportActionBar?.title = "帮助"
+        super.onCreate(savedInstanceState)
     }
 }

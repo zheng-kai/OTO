@@ -2,11 +2,11 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/colorOTOWhite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorOTOWhite"
-        tools:context=".personal.human.HumanActivity">
+        tools:context=".personal.face.FaceActivity">
 
     <include
             android:layout_height="wrap_content"
@@ -31,14 +31,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textColor="#ff121212"
-                android:text="点击上传摩托车证件照片"/>
+                android:text="点击上传身份证正面"/>
+
+        <ImageButton
+                android:background="#C0C0C0"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@mipmap/pic"/>
+
+        <TextView
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="#ff121212"
+                android:text="点击上传身份证反面"/>
 
         <Button
                 android:background="#C0C0C0"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:textColor="#ff121212"
-                android:text="提交认证"/>
+                android:text="下一步"/>
     </LinearLayout>
 
     <include

@@ -8,8 +8,10 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(findViewById(R.id.personal_toolbar))
+        initToolbar()
         initView()
     }
 
     abstract fun initView()
+    abstract fun initToolbar()
 }

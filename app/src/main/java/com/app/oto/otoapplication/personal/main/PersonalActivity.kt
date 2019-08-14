@@ -7,11 +7,16 @@ import android.view.MenuItem
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.personal.base.BaseActivity
 import com.app.oto.otoapplication.personal.base.getMyIntent
+import com.app.oto.otoapplication.personal.face.FaceActivity
 import com.app.oto.otoapplication.personal.friend.FriendActivity
 import com.app.oto.otoapplication.personal.help.HelpActivity
+import com.app.oto.otoapplication.personal.human.HumanActivity
 import com.app.oto.otoapplication.personal.vehicle.VehicleActivity
 
 class PersonalActivity : BaseActivity(), MainContract.View {
+    override fun initToolbar() {
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.home_personal_layout)
@@ -20,13 +25,13 @@ class PersonalActivity : BaseActivity(), MainContract.View {
 
     override fun initView() {
         findViewById<CardView>(R.id.verify_face).setOnClickListener {
-            startActivity(getMyIntent(this, HelpActivity::class.java))
+            startActivity(getMyIntent(this, FaceActivity::class.java))
         }
         findViewById<CardView>(R.id.verify_vehicle).setOnClickListener {
             startActivity(getMyIntent(this, VehicleActivity::class.java))
         }
         findViewById<CardView>(R.id.verify_human).setOnClickListener {
-            startActivity(getMyIntent(this, HelpActivity::class.java))
+            startActivity(getMyIntent(this, HumanActivity::class.java))
         }
         findViewById<CardView>(R.id.friend).setOnClickListener {
             startActivity(getMyIntent(this, FriendActivity::class.java))
