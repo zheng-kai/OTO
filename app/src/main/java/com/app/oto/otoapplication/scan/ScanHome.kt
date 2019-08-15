@@ -15,16 +15,20 @@ import android.util.Log
 import android.widget.Toast
 import cn.bingoogolapple.qrcode.core.BarcodeType
 import com.app.oto.otoapplication.commons.CommonContext
+import pub.devrel.easypermissions.AfterPermissionGranted
+import pub.devrel.easypermissions.EasyPermissions
 import java.security.Permission
 import java.util.jar.Manifest
 
 
-class ScanHome:AppCompatActivity(),QRCodeView.Delegate {
+class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.PermissionCallbacks {
+    private val REQUEST_CODE_QRCODE_PERMISSIONS = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity_scan)
         scan_home_navigation.apply {
-            btn_home.background = ResourcesCompat.getDrawable(resources,R.mipmap.home_clicked,null)
+            btn_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
         }
         img_scan_back.setOnClickListener {
             onBackPressed()
@@ -34,7 +38,7 @@ class ScanHome:AppCompatActivity(),QRCodeView.Delegate {
 
     override fun onStart() {
         super.onStart()
-
+        requestCodeQRCodePermissions()
         zx_scan.startCamera() // 打开后置摄像头开始预览，但是并未开始识别
         //        mZXingView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT); // 打开前置摄像头开始预览，但是并未开始识别
         zx_scan.setType(BarcodeType.TWO_DIMENSION, null) // 只识别二维条码
@@ -57,9 +61,9 @@ class ScanHome:AppCompatActivity(),QRCodeView.Delegate {
     }
 
     override fun onScanQRCodeSuccess(result: String) {
-        title = "扫描结果为：$result"
+        Toast.makeText(this, result, Toast.LENGTH_LONG).show()
         vibrate()
-        Log.d("scanResult",result)
+        Log.d("scanResult", result)
         zx_scan.startSpot() // 开始识别
     }
 
@@ -80,7 +84,25 @@ class ScanHome:AppCompatActivity(),QRCodeView.Delegate {
     }
 
     override fun onScanQRCodeOpenCameraError() {
-        Toast.makeText(this,"打开相机出错,检查相机权限.",Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "打开相机出错,检查相机权限.", Toast.LENGTH_LONG).show()
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {}
+
+    override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
+        Toast.makeText(this,"扫码功能无法使用，请授予权限",Toast.LENGTH_LONG).show()
+    }
+
+//    @AfterPermissionGranted(REQUEST_CODE_QRCODE_PERMISSIONS)
+    private fun requestCodeQRCodePermissions() {
+        val perms = arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        if (!EasyPermissions.hasPermissions(this, *perms)) {
+            EasyPermissions.requestPermissions(this, "扫描二维码需要打开相机和散光灯的权限", REQUEST_CODE_QRCODE_PERMISSIONS, *perms)
+        }
+    }
 }
