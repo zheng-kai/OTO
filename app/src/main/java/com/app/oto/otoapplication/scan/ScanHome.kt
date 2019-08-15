@@ -39,10 +39,7 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
     override fun onStart() {
         super.onStart()
         requestCodeQRCodePermissions()
-        zx_scan.startCamera() // 打开后置摄像头开始预览，但是并未开始识别
-        //        mZXingView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT); // 打开前置摄像头开始预览，但是并未开始识别
-        zx_scan.setType(BarcodeType.TWO_DIMENSION, null) // 只识别二维条码
-        zx_scan.startSpotAndShowRect() // 显示扫描框，并开始识别
+
     }
 
     override fun onStop() {
@@ -92,7 +89,12 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
     }
 
-    override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {}
+    override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
+        zx_scan.startCamera() // 打开后置摄像头开始预览，但是并未开始识别
+        //        mZXingView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT); // 打开前置摄像头开始预览，但是并未开始识别
+        zx_scan.setType(BarcodeType.TWO_DIMENSION, null) // 只识别二维条码
+        zx_scan.startSpotAndShowRect() // 显示扫描框，并开始识别
+    }
 
     override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
         Toast.makeText(this,"扫码功能无法使用，请授予权限",Toast.LENGTH_LONG).show()
