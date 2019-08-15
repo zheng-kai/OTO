@@ -1,11 +1,13 @@
 package com.app.oto.otoapplication.transport
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.scan.ScanHome
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_car.*
 
@@ -24,6 +26,9 @@ class TransportCar:AppCompatActivity() {
             for(i in 1..5){
                 add("xxxxx","A","$i 元")
             }
+        }
+        img_car_scan.setOnClickListener {
+            startActivity(Intent(this,ScanHome::class.java))
         }
     }
 
