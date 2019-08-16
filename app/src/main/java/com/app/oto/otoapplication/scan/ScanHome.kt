@@ -1,6 +1,7 @@
 package com.app.oto.otoapplication.scan
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
@@ -15,6 +16,7 @@ import android.util.Log
 import android.widget.Toast
 import cn.bingoogolapple.qrcode.core.BarcodeType
 import com.app.oto.otoapplication.commons.CommonContext
+import com.app.oto.otoapplication.scan.nomaluser.ScanNormal
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
 import java.security.Permission
@@ -61,6 +63,9 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
         Toast.makeText(this, result, Toast.LENGTH_LONG).show()
         vibrate()
         Log.d("scanResult", result)
+        val intent = Intent(this,ScanNormal::class.java)
+        intent.putExtra("title",result)
+        startActivity(intent)
         zx_scan.startSpot() // 开始识别
     }
 

@@ -33,6 +33,8 @@
         <activity android:name=".transport.TransportCrowdsource"/>
         <activity android:name=".transport.TransportOrdered"/>
         <activity android:name=".scan.ScanHome"/>
+        <activity android:name=".scan.nomaluser.ScanNormal"/>
+        <activity android:name=".scan.nomaluser.NormalPick"/>
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
                 android:value="T0yzhVnfSpi4obUtH80st6fplWXRM8uu"/>
