@@ -38,6 +38,7 @@
         <activity android:name=".scan.car_user.ScanCar"/>
         <activity android:name=".scan.crowdsource_user.ScanCrowdsource"/>
         <activity android:name=".scan.crowdsource_user.CrowdsourcePick"/>
+        <activity android:name=".scan.nomal_user.NormalPost"/>
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
                 android:value="T0yzhVnfSpi4obUtH80st6fplWXRM8uu"/>
