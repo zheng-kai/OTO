@@ -34,45 +34,32 @@
             android:textColor="@color/colorOTOBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-    <android.support.v7.widget.CardView
-            android:background="@drawable/button_background"
-            android:id="@+id/cd_post"
+    <Button
+            android:textSize="12sp"
+            android:textColor="@drawable/button_text_color"
+            android:text="我要寄件"
+            android:background="@drawable/button_background_large"
+            android:id="@+id/btn_post"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
             android:layout_marginTop="18dp"
             android:layout_marginStart="22dp"
             android:layout_marginEnd="22dp"
-            style="@style/cardViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <TextView
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_gravity="center"
-                android:textSize="12sp"
-                android:textColor="@color/colorOTOBlack"
-                android:text="我要寄件"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-            android:background="@drawable/button_background"
+    </Button>
+    <Button
+            android:textSize="12sp"
+            android:textColor="@drawable/button_text_color"
+            android:text="我要取件"
+            android:background="@drawable/button_background_large"
             android:id="@+id/cd_pick_up"
             android:layout_marginTop="18dp"
             android:layout_marginStart="22dp"
             android:layout_marginEnd="22dp"
-            style="@style/cardViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <TextView
-                android:background="@drawable/textview_background"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textColor="@drawable/button_text_color"
-                android:text="我要取件"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-    </android.support.v7.widget.CardView>
+    </Button>
     <android.support.v7.widget.CardView
             android:id="@+id/cd_scan_normal_boxes"
             android:visibility="invisible"

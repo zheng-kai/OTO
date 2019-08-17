@@ -17,7 +17,7 @@ class ScanNormal:AppCompatActivity() {
         val title = "Ai空间" + intent.getStringExtra("title")
         tv_normal_title.text = title
         gridview_scan_normal.adapter = GridViewAdapter()
-        cd_post.setOnClickListener {
+        btn_post.setOnClickListener {
             cd_scan_normal_boxes.visibility = View.VISIBLE
         }
         cd_scan_normal_boxes.btn_scan_normal_confirm.setOnClickListener {
