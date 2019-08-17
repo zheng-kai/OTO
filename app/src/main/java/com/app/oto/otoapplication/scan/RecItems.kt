@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
@@ -14,6 +15,7 @@ import com.app.oto.otoapplication.commons.CommonContext
 import kotlinx.android.synthetic.main.rec_item_pick_car.view.*
 import kotlinx.android.synthetic.main.rec_item_pick_crowdsource.view.*
 import kotlinx.android.synthetic.main.rec_item_pick_normal.view.*
+import kotlinx.android.synthetic.main.rec_item_post_normal.view.*
 import kotlinx.android.synthetic.main.scan_result_crowdsource_pick.view.*
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.anko.textColor
@@ -218,3 +220,72 @@ fun MutableList<Item>.add(
     userName: String,
     phone: String
 ) = add(ScanCrowdsourceRecItem(position, boxId, destination, userName, phone))
+
+class ScanNormalPostRecItem(val name: String, val phone: String, val location: String) : Item {
+    companion object Controller : ItemController {
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
+            item as ScanNormalPostRecItem
+            holder as MViewHolder
+            holder.apply {
+                name.text = item.name
+                phone.text = item.phone
+                location.text = item.location
+                post.setOnClickListener {
+
+                }
+                selectImg.setOnClickListener {
+                    if (it.background == ResourcesCompat.getDrawable(
+                            CommonContext.application.resources,
+                            R.mipmap.checkout_selected,
+                            null
+                        )
+                    ) {
+                        it.background = ResourcesCompat.getDrawable(
+                            CommonContext.application.resources,
+                            R.mipmap.checkout_unselected,
+                            null
+                        )
+                        post.visibility = View.INVISIBLE
+                    } else {
+                        it.background = ResourcesCompat.getDrawable(
+                            CommonContext.application.resources,
+                            R.mipmap.checkout_selected,
+                            null
+                        )
+                        post.visibility = View.VISIBLE
+                    }
+
+                }
+            }
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
+            val itemView = parent.context.layoutInflater.inflate(R.layout.rec_item_post_normal, parent, false)
+            val name = itemView.tv_normal_post_name
+            val phone = itemView.tv_normal_post_phone
+            val location = itemView.tv_normal_post_location
+            val post = itemView.btn_normal_post
+            val selectImg = itemView.img_normal_post_select
+            return MViewHolder(itemView, name, phone, location, post, selectImg)
+        }
+
+    }
+
+    private class MViewHolder(
+        itemView: View,
+        val name: TextView,
+        val phone: TextView,
+        val location: TextView,
+        val post: Button,
+        val selectImg: ImageView
+    ) : RecyclerView.ViewHolder(itemView)
+
+    override val controller: ItemController
+        get() = Controller
+}
+
+fun MutableList<Item>.add(
+     name: String,
+     phone: String,
+     location: String
+) = add(ScanNormalPostRecItem(name,phone,location))

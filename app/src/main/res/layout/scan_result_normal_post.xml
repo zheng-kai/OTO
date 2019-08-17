@@ -143,6 +143,7 @@
                         </LinearLayout>
                     </LinearLayout>
                     <Button
+                            android:id="@+id/btn_normal_custom_post"
                             android:textSize="8sp"
                             android:textColor="@color/colorOTOBlack"
                             android:text="寄件"
@@ -155,6 +156,7 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rec_normal_post"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
