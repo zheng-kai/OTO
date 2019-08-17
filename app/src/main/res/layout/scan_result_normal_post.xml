@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:background="@color/colorOTOBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_post"
             android:background="@drawable/toolbar_background"
             android:layout_width="match_parent"
             android:layout_height="48dp">
@@ -25,14 +26,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
     </android.support.v7.widget.Toolbar>
+    <FrameLayout
+            android:id="@+id/frame_normal_post_dialog"
+            android:visibility="gone"
+            android:elevation="10dp"
+            android:background="@color/colorOTOGreen"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_post"
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+        <TextView
+                android:layout_gravity="center"
+                android:text="请关闭环保智能箱"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </FrameLayout>
     <android.support.v7.widget.CardView
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_post"
+            app:layout_constraintBottom_toTopOf="@+id/scan_normal_post_navigation"
             style="@style/cardViewStyle"
             android:layout_marginTop="20dp"
             android:layout_marginStart="22dp"
             android:layout_marginEnd="22dp"
             android:layout_marginBottom="23dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp">
         <LinearLayout
                 android:layout_marginStart="17dp"
                 android:layout_marginEnd="17dp"
@@ -120,18 +139,22 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
                                 <Spinner
+                                        android:background="@color/white"
                                         android:layout_width="53dp"
                                         android:layout_height="13dp"/>
                                 <Spinner
+                                        android:background="@color/white"
                                         android:layout_marginStart="7dp"
                                         android:layout_width="53dp"
                                         android:layout_height="13dp"/>
                                 <Spinner
+                                        android:background="@color/white"
                                         android:layout_marginStart="7dp"
                                         android:layout_width="53dp"
                                         android:layout_height="13dp"/>
                             </LinearLayout>
                             <EditText
+                                    android:textColorHint="@color/colorOTOGray"
                                     android:layout_marginEnd="20dp"
                                     android:layout_marginTop="7dp"
                                     android:background="@color/white"
@@ -164,4 +187,12 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
-</LinearLayout>
+    <include
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/scan_normal_post_navigation"
+            layout="@layout/navigation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+    />
+
+</android.support.constraint.ConstraintLayout>

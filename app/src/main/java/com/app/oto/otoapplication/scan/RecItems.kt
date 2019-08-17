@@ -1,21 +1,28 @@
 package com.app.oto.otoapplication.scan
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.R.id.btn_normal_custom_post
+import com.app.oto.otoapplication.R.mipmap.location
 import com.app.oto.otoapplication.commons.CommonContext
+import com.app.oto.otoapplication.scan.nomal_user.NormalPostPay
 import kotlinx.android.synthetic.main.rec_item_pick_car.view.*
 import kotlinx.android.synthetic.main.rec_item_pick_crowdsource.view.*
 import kotlinx.android.synthetic.main.rec_item_pick_normal.view.*
 import kotlinx.android.synthetic.main.rec_item_post_normal.view.*
+import kotlinx.android.synthetic.main.scan_result_normal_post.*
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.anko.textColor
 
@@ -220,7 +227,7 @@ fun MutableList<Item>.add(
     phone: String
 ) = add(ScanCrowdsourceRecItem(position, boxId, destination, userName, phone))
 
-class ScanNormalPostRecItem(val name: String, val phone: String, val location: String) : Item {
+class ScanNormalPostRecItem( val name: String, val phone: String, val location: String,val showDialog : ()->Unit) : Item {
     companion object Controller : ItemController {
         private var selected = false
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
@@ -230,8 +237,9 @@ class ScanNormalPostRecItem(val name: String, val phone: String, val location: S
                 name.text = item.name
                 phone.text = item.phone
                 location.text = item.location
-                post.setOnClickListener {
 
+                post.setOnClickListener {
+                    item.showDialog()
                 }
                 selectImg.setOnClickListener {
                     if (selected) {
@@ -284,5 +292,6 @@ class ScanNormalPostRecItem(val name: String, val phone: String, val location: S
 fun MutableList<Item>.add(
     name: String,
     phone: String,
-    location: String
-) = add(ScanNormalPostRecItem(name, phone, location))
+    location: String,
+    showDialog: () -> Unit
+) = add(ScanNormalPostRecItem(name, phone, location,showDialog))
