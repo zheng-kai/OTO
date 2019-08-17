@@ -6,7 +6,7 @@
         android:layout_marginBottom="22dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
     <android.support.constraint.ConstraintLayout
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -33,6 +33,7 @@
                 android:id="@+id/btn_car_pick"
                 android:layout_width="63dp"
                 android:layout_height="18dp"
+                android:background="@drawable/button_background_green"
                 app:layout_constraintTop_toTopOf="@+id/tv_car_pick_box_id"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_car_pick_box_id"
                 app:layout_constraintRight_toRightOf="parent"
