@@ -22,9 +22,11 @@ class NormalPick :AppCompatActivity(){
         }
         rec_normal_pick.layoutManager = LinearLayoutManager(this)
         rec_normal_pick.withItems {
-            for(i in 1..3){
+            for(i in 1..2){
                 add(i,"1234567805","2019-8-1 8:30","Jack","未付款","xxxxxxxxxxxxxxxxxxxx")
             }
+            add(3,"1234567805","2019-8-1 8:30","Jack","已付款","xxxxxxxxxxxxxxxxxxxx")
+
         }
     }
 }

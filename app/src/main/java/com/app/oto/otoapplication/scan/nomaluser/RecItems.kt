@@ -63,7 +63,7 @@ class NormalPickItem(
 
         override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
             val view = parent.context.layoutInflater.inflate(R.layout.rec_item_pick_normal, parent, false)
-            val title = view.tv_normal_title
+            val title = view.tv_normal_pick_title
             val boxId = view.tv_normal_pick_box_id
             val date = view.tv_normal_pick_date
             val userName = view.tv_normal_pick_name
