@@ -16,15 +16,16 @@ class GridViewAdapter :BaseAdapter(){
     val dataList = ArrayList<String>(listOf("A","B","C","D","E"))
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View
-        var viewHolder:GViewHolder? = null
+        val viewHolder:GViewHolder?
         if(convertView == null){
             view = LayoutInflater.from(CommonContext.application).inflate(R.layout.gridview_item,parent,false)
-            viewHolder?.textView = view.tv_grid_item
+            viewHolder = GViewHolder(view.tv_grid_item)
+            view.tag = viewHolder
         }else{
             view = convertView
             viewHolder = view.tag as GViewHolder
         }
-        viewHolder?.textView?.text = dataList[position]
+        viewHolder.textView.text = dataList[position]
         return view
     }
 
