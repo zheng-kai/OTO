@@ -2,7 +2,7 @@
 <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@color/white"
+        xmlns:tools="http://schemas.android.com/tools" android:background="@color/white"
         android:layout_marginBottom="22dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/btn_car_pick"
                 android:layout_width="63dp"
-                android:layout_height="18dp"
+                android:layout_height="21dp"
                 android:background="@drawable/button_background_green"
                 app:layout_constraintTop_toTopOf="@+id/tv_car_pick_box_id"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_car_pick_box_id"

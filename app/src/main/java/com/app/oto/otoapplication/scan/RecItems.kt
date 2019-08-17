@@ -12,7 +12,9 @@ import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.commons.CommonContext
 import kotlinx.android.synthetic.main.rec_item_pick_car.view.*
+import kotlinx.android.synthetic.main.rec_item_pick_crowdsource.view.*
 import kotlinx.android.synthetic.main.rec_item_pick_normal.view.*
+import kotlinx.android.synthetic.main.scan_result_crowdsource_pick.view.*
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.anko.textColor
 
@@ -142,3 +144,77 @@ fun MutableList<Item>.add(position: Int, boxId: String) = add(
         boxId
     )
 )
+
+
+class ScanCrowdsourceRecItem(
+    val position: Int,
+    val boxId: String,
+    val destination: String,
+    val userName: String,
+    val phone: String
+) : Item {
+    companion object Controller : ItemController {
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
+            item as ScanCrowdsourceRecItem
+            holder as MViewHolder
+            item.apply {
+                val titleStr = "包裹$position"
+                val boxIdStr = "智能环保箱编号：$boxId"
+                val destinationStr = "送货地点：$destination"
+                val userNameStr = "用户：$userName"
+                val phoneStr = "联系电话：$phone"
+                holder.apply {
+                    title.text = titleStr
+                    boxId.text = boxIdStr
+                    destination.text = destinationStr
+                    userName.text = userNameStr
+                    phone.text = phoneStr
+                    btn.setOnClickListener {
+                        btn.background = ResourcesCompat.getDrawable(
+                            CommonContext.application.resources,
+                            R.drawable.button_background_orange,
+                            null
+                        )
+                        btn.text = "正在出库"
+                    }
+                }
+
+            }
+
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
+            val view = parent.context.layoutInflater.inflate(R.layout.rec_item_pick_crowdsource, parent, false)
+            val title = view.tv_crowdsource_pick_title
+            val boxId = view.tv_crowdsource_pick_box_id
+            val destination = view.tv_crowdsource_pick_destination
+            val userName = view.tv_crowdsource_pick_name
+            val phone = view.tv_crowdsource_pick_phone
+            val btn = view.btn_crowdsource_rec_item_pick
+            return MViewHolder(view, title, boxId, destination, userName, phone, btn)
+        }
+
+    }
+
+    private class MViewHolder(
+        itemView: View,
+        val title: TextView,
+        val boxId: TextView,
+        val destination: TextView,
+        val userName: TextView,
+        val phone: TextView,
+        val btn: Button
+    ) :
+        RecyclerView.ViewHolder(itemView)
+
+    override val controller: ItemController
+        get() = Controller
+}
+
+fun MutableList<Item>.add(
+    position: Int,
+    boxId: String,
+    destination: String,
+    userName: String,
+    phone: String
+) = add(ScanCrowdsourceRecItem(position, boxId, destination, userName, phone))
