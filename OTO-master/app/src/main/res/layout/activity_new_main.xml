@@ -2,7 +2,8 @@
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_home_transport"
             android:background="@drawable/toolbar_background"
@@ -26,18 +27,18 @@
                 android:layout_height="match_parent"/>
     </android.support.v7.widget.Toolbar>
     <ScrollView
-            android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_home_transport"
-            android:layout_height="match_parent"
-            android:layout_marginTop="48dp"
             android:background="@color/colorOTOBackground"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_home_transport"
+            app:layout_constraintBottom_toTopOf="@+id/transport_home_navigation"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/transport_home_navigation"
-            app:layout_constraintHorizontal_bias="0.0">
+            app:layout_constraintEnd_toEndOf="parent">
         <LinearLayout android:orientation="vertical"
                       android:layout_width="match_parent"
-                      android:layout_height="match_parent">
+                      android:layout_height="wrap_content">
             <android.support.v7.widget.CardView
                     android:id="@+id/main_message"
                     app:cardCornerRadius="8dp"
@@ -45,7 +46,7 @@
                     app:cardBackgroundColor="#FFFFFF"
                     android:layout_marginStart="22dp"
                     android:layout_marginEnd="22dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <android.support.constraint.ConstraintLayout
@@ -80,11 +81,12 @@
                             android:id="@+id/textView2"/>
                     <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="8dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:textColor="#3D83D6"
                             android:text="点击查看更多"
                             android:textSize="8sp"
                             app:layout_constraintTop_toBottomOf="@+id/textView2"
-                            android:layout_marginBottom="16dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginStart="17dp"
@@ -151,7 +153,9 @@
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:layout_height="43dp">
+                    android:layout_height="43dp"
+                    android:layout_marginBottom="5dp"
+            >
                 <TextView
                         android:layout_marginStart="17dp"
                         android:drawableStart="@drawable/ic_title"
@@ -166,6 +170,7 @@
             </android.support.v7.widget.CardView>
         </LinearLayout>
     </ScrollView>
+
 
 
     <include
