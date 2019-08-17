@@ -1,4 +1,4 @@
-package com.app.oto.otoapplication.scan.nomaluser
+package com.app.oto.otoapplication.scan.nomal_user
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,6 @@ import com.app.oto.otoapplication.R
 import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_normal.*
 import kotlinx.android.synthetic.main.scan_result_normal.view.*
-import org.jetbrains.anko.startActivity
 
 class ScanNormal:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

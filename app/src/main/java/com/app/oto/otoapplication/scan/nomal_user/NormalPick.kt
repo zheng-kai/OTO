@@ -1,4 +1,4 @@
-package com.app.oto.otoapplication.scan.nomaluser
+package com.app.oto.otoapplication.scan.nomal_user
 
 import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
-import com.app.oto.otoapplication.transport.add
 import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_normal_pick.*
 

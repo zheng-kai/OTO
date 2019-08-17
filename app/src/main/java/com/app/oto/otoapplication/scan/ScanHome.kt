@@ -10,17 +10,11 @@ import com.app.oto.otoapplication.R
 import kotlinx.android.synthetic.main.home_activity_scan.*
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import android.os.Vibrator
-import android.support.v4.app.FragmentActivity
-import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.widget.Toast
 import cn.bingoogolapple.qrcode.core.BarcodeType
-import com.app.oto.otoapplication.commons.CommonContext
-import com.app.oto.otoapplication.scan.nomaluser.ScanNormal
-import pub.devrel.easypermissions.AfterPermissionGranted
+import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import pub.devrel.easypermissions.EasyPermissions
-import java.security.Permission
-import java.util.jar.Manifest
 
 
 class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.PermissionCallbacks {

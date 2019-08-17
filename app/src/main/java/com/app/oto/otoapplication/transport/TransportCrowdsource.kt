@@ -7,8 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
-import com.app.oto.otoapplication.scan.ScanHome
-import com.app.oto.otoapplication.scan.nomaluser.ScanNormal
+import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_crowdsource.*
 

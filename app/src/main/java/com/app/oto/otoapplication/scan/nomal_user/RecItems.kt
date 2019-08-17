@@ -1,7 +1,6 @@
-package com.app.oto.otoapplication.scan.nomaluser
+package com.app.oto.otoapplication.scan.nomal_user
 
 import android.graphics.Color
-import android.renderscript.Allocation
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -13,7 +12,6 @@ import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.commons.CommonContext
 import kotlinx.android.synthetic.main.rec_item_pick_normal.view.*
-import kotlinx.android.synthetic.main.scan_result_normal.view.*
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.anko.textColor
 
