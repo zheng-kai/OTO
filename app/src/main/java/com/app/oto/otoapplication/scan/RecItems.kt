@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.rec_item_pick_car.view.*
 import kotlinx.android.synthetic.main.rec_item_pick_crowdsource.view.*
 import kotlinx.android.synthetic.main.rec_item_pick_normal.view.*
 import kotlinx.android.synthetic.main.rec_item_post_normal.view.*
-import kotlinx.android.synthetic.main.scan_result_crowdsource_pick.view.*
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.anko.textColor
 
@@ -223,6 +222,7 @@ fun MutableList<Item>.add(
 
 class ScanNormalPostRecItem(val name: String, val phone: String, val location: String) : Item {
     companion object Controller : ItemController {
+        private var selected = false
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
             item as ScanNormalPostRecItem
             holder as MViewHolder
@@ -234,18 +234,14 @@ class ScanNormalPostRecItem(val name: String, val phone: String, val location: S
 
                 }
                 selectImg.setOnClickListener {
-                    if (it.background == ResourcesCompat.getDrawable(
-                            CommonContext.application.resources,
-                            R.mipmap.checkout_selected,
-                            null
-                        )
-                    ) {
+                    if (selected) {
                         it.background = ResourcesCompat.getDrawable(
                             CommonContext.application.resources,
                             R.mipmap.checkout_unselected,
                             null
                         )
                         post.visibility = View.INVISIBLE
+                        selected = false
                     } else {
                         it.background = ResourcesCompat.getDrawable(
                             CommonContext.application.resources,
@@ -253,6 +249,7 @@ class ScanNormalPostRecItem(val name: String, val phone: String, val location: S
                             null
                         )
                         post.visibility = View.VISIBLE
+                        selected = true
                     }
 
                 }
@@ -285,7 +282,7 @@ class ScanNormalPostRecItem(val name: String, val phone: String, val location: S
 }
 
 fun MutableList<Item>.add(
-     name: String,
-     phone: String,
-     location: String
-) = add(ScanNormalPostRecItem(name,phone,location))
+    name: String,
+    phone: String,
+    location: String
+) = add(ScanNormalPostRecItem(name, phone, location))

@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"/>
             <Button
                     android:visibility="invisible"
-                    android:background="@drawable/button_normal"
+                    android:background="@drawable/button_background_white_green"
                     android:textSize="8sp"
                     android:text="寄件"
                     android:textColor="@color/colorOTOBlack"
