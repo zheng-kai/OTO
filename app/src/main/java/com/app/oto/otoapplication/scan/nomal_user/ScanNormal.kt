@@ -6,6 +6,7 @@ import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.scan.GridViewAdapter
 import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_normal.*
 import kotlinx.android.synthetic.main.scan_result_normal.view.*

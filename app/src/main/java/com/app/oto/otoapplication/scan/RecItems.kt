@@ -1,4 +1,4 @@
-package com.app.oto.otoapplication.scan.nomal_user
+package com.app.oto.otoapplication.scan
 
 import android.graphics.Color
 import android.support.v4.content.res.ResourcesCompat
@@ -11,6 +11,7 @@ import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.commons.CommonContext
+import kotlinx.android.synthetic.main.rec_item_pick_car.view.*
 import kotlinx.android.synthetic.main.rec_item_pick_normal.view.*
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.anko.textColor
@@ -68,7 +69,16 @@ class NormalPickItem(
             val payStatus = view.tv_normal_pick_pay_status
             val content = view.tv_normal_pick_content
             val btn = view.btn_rec_item_scan_normal
-            return MViewHolder(view, title, boxId, date, userName, payStatus, content, btn)
+            return MViewHolder(
+                view,
+                title,
+                boxId,
+                date,
+                userName,
+                payStatus,
+                content,
+                btn
+            )
         }
     }
 
@@ -88,4 +98,47 @@ class NormalPickItem(
 }
 
 fun MutableList<Item>.add(position: Int, boxId: String, date: String, name: String, status: String, content: String) =
-    add(NormalPickItem(position,boxId,date,name,status,content))
+    add(NormalPickItem(position, boxId, date, name, status, content))
+
+class ScanCarRecItem(val position: Int, val boxId: String) : Item {
+    companion object Controller : ItemController {
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
+            item as ScanCarRecItem
+            holder as MViewHolder
+            val titleStr = "包裹${item.position}"
+            val boxIdStr = "智能环保箱编号：${item.boxId}"
+            holder.title.text = titleStr
+            holder.boxId.text = boxIdStr
+            holder.btn.setOnClickListener {
+                holder.btn.background = ResourcesCompat.getDrawable(
+                    CommonContext.application.resources,
+                    R.drawable.button_background_orange,
+                    null
+                )
+                holder.btn.text = "正在出库"
+            }
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
+            val view = parent.context.layoutInflater.inflate(R.layout.rec_item_pick_car, parent, false)
+            val title = view.tv_car_pick_title
+            val boxId = view.tv_car_pick_box_id
+            val btn = view.btn_car_pick
+            return MViewHolder(view, title, boxId, btn)
+        }
+
+    }
+
+    private class MViewHolder(itemView: View, val title: TextView, val boxId: TextView, val btn: Button) :
+        RecyclerView.ViewHolder(itemView)
+
+    override val controller: ItemController
+        get() = Controller
+}
+
+fun MutableList<Item>.add(position: Int, boxId: String) = add(
+    ScanCarRecItem(
+        position,
+        boxId
+    )
+)

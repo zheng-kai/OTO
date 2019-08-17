@@ -1,4 +1,4 @@
-package com.app.oto.otoapplication.scan.nomal_user
+package com.app.oto.otoapplication.scan
 
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ class GridViewAdapter :BaseAdapter(){
     val dataList = ArrayList<String>(listOf("A","B","C","D","E"))
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View
-        val viewHolder:GViewHolder?
+        val viewHolder: GViewHolder?
         if(convertView == null){
             view = LayoutInflater.from(CommonContext.application).inflate(R.layout.gridview_item,parent,false)
             viewHolder = GViewHolder(view.tv_grid_item)

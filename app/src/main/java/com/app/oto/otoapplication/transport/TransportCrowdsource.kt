@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.scan.car_user.ScanCar
+import com.app.oto.otoapplication.scan.crowdsource_user.ScanCrowdsource
 import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_crowdsource.*
@@ -29,7 +30,7 @@ class TransportCrowdsource : AppCompatActivity() {
             }
         }
         img_crowdsource_scan.setOnClickListener {
-            startActivity(Intent(this, ScanCar::class.java))
+            startActivity(Intent(this, ScanCrowdsource::class.java))
         }
     }
     override fun onResume() {
