@@ -33,6 +33,10 @@ class TransportCrowdsource : AppCompatActivity() {
         img_crowdsource_scan.setOnClickListener {
             startActivity(Intent(this, NormalPost::class.java))
         }
+        val baiduMap = map_transport_crowdscource.map
+        baiduMap.isTrafficEnabled = true
+        baiduMap.isMyLocationEnabled = true
+
     }
     override fun onResume() {
         super.onResume()

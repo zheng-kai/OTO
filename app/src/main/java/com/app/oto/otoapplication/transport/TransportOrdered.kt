@@ -32,6 +32,10 @@ class TransportOrdered:AppCompatActivity(){
                 addOrdered("${Random(i).nextInt()}","182****1548","xxxxxx","$i 元")
             }
         }
+        val baiduMap = map_transport_ordered.map
+        baiduMap.isTrafficEnabled = true
+        baiduMap.isMyLocationEnabled = true
+
     }
     override fun onResume() {
         super.onResume()

@@ -11,6 +11,10 @@
     <!-- 写外置存储。如果开发者使用了离线地图，并且数据写在外置存储区域，则需要申请该权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
             android:networkSecurityConfig="@xml/network_security_config"
             android:name=".OTOApplication"
@@ -40,6 +44,10 @@
         <activity android:name=".scan.crowdsource_user.CrowdsourcePick"/>
         <activity android:name=".scan.nomal_user.NormalPost"/>
         <activity android:name=".scan.nomal_user.NormalPostPay"/>
+        <activity android:name=".Face"/>
+        <service android:name="com.baidu.location.f"
+                 android:enabled="true"
+                 android:process=":remote"/>
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
                 android:value="T0yzhVnfSpi4obUtH80st6fplWXRM8uu"/>

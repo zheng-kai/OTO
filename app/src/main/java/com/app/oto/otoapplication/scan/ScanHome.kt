@@ -96,7 +96,7 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
     }
 
     override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
-        Toast.makeText(this,"扫码功能无法使用，请授予权限",Toast.LENGTH_LONG).show()
+//        Toast.makeText(this,"扫码功能无法使用，请授予权限",Toast.LENGTH_LONG).show()
     }
 
 //    @AfterPermissionGranted(REQUEST_CODE_QRCODE_PERMISSIONS)
