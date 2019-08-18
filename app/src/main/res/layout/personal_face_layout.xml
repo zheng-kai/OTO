@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/colorOTOWhite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".personal.face.FaceActivity">
+
+    <include
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            layout="@layout/home_personal_toolbar"/>
+
+    <LinearLayout
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="30dp">
+
+        <ImageButton
+                android:background="#C0C0C0"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@mipmap/pic"/>
+
+        <TextView
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="#ff121212"
+                android:text="点击上传身份证正面"/>
+
+        <ImageButton
+                android:background="#C0C0C0"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@mipmap/pic"/>
+
+        <TextView
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="#ff121212"
+                android:text="点击上传身份证反面"/>
+
+        <Button
+                android:background="#C0C0C0"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="#ff121212"
+                android:text="下一步"/>
+    </LinearLayout>
+
+    <include
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            layout="@layout/personal_navigation_layout"/>
+</LinearLayout>
