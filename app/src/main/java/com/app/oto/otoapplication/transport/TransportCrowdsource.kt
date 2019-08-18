@@ -13,6 +13,10 @@ import com.app.oto.otoapplication.scan.nomal_user.NormalPost
 import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_crowdsource.*
+import com.baidu.location.LocationClientOption
+import com.baidu.location.LocationClient
+
+
 
 class TransportCrowdsource : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +38,26 @@ class TransportCrowdsource : AppCompatActivity() {
             startActivity(Intent(this, NormalPost::class.java))
         }
         val baiduMap = map_transport_crowdscource.map
-        baiduMap.isTrafficEnabled = true
+//        baiduMap.isTrafficEnabled = true
         baiduMap.isMyLocationEnabled = true
+
+        //定位初始化
+        val mLocationClient = LocationClient(this)
+
+        //通过LocationClientOption设置LocationClient相关参数
+        val option = LocationClientOption()
+        option.isOpenGps = true // 打开gps
+        option.setCoorType("bd09ll") // 设置坐标类型
+        option.setScanSpan(1000)
+
+        //设置locationClientOption
+        mLocationClient.locOption = option
+
+        //注册LocationListener监听器
+        val myLocationListener = MyLocationListener(baiduMap,map_transport_crowdscource)
+        mLocationClient.registerLocationListener(myLocationListener)
+        //开启地图定位图层
+        mLocationClient.start()
 
     }
     override fun onResume() {

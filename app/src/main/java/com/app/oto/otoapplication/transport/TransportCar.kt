@@ -17,6 +17,11 @@ import com.baidu.location.LocationClient
 import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapView
 import com.baidu.mapapi.map.MyLocationData
+import com.baidu.mapapi.map.MarkerOptions
+import com.baidu.mapapi.map.OverlayOptions
+import com.baidu.mapapi.map.BitmapDescriptorFactory
+import com.baidu.mapapi.map.BitmapDescriptor
+import com.baidu.mapapi.model.LatLng
 
 
 class TransportCar : AppCompatActivity() {
@@ -45,7 +50,9 @@ class TransportCar : AppCompatActivity() {
         baiduMap = map_transport_car.map
         baiduMap.isTrafficEnabled = true
         baiduMap.isMyLocationEnabled = true
-
+        baiduMap.setOnMarkerClickListener {
+            false
+        }
         //定位初始化
         mLocationClient = LocationClient(this)
 
@@ -54,13 +61,25 @@ class TransportCar : AppCompatActivity() {
         option.isOpenGps = true // 打开gps
         option.setCoorType("bd09ll") // 设置坐标类型
         option.setScanSpan(1000)
-
+        option.locationMode = LocationClientOption.LocationMode.Hight_Accuracy
         //设置locationClientOption
         mLocationClient.locOption = option
 
         //注册LocationListener监听器
         val myLocationListener = ALocationListener()
         mLocationClient.registerLocationListener(myLocationListener)
+
+        //定义Maker坐标点
+        val point = LatLng(39.963175, 116.400244)
+        //构建Marker图标
+        val bitmap = BitmapDescriptorFactory
+            .fromResource(R.mipmap.location)
+        //构建MarkerOption，用于在地图上添加Marker
+        val markOption = MarkerOptions()
+            .position(point)
+            .icon(bitmap)
+        //在地图上添加Marker，并显示
+        baiduMap.addOverlay(markOption)
         //开启地图定位图层
         mLocationClient.start()
     }
@@ -83,7 +102,8 @@ class TransportCar : AppCompatActivity() {
         super.onDestroy()
 
     }
-    inner class ALocationListener() : BDAbstractLocationListener() {
+
+    inner class ALocationListener : BDAbstractLocationListener() {
         override fun onReceiveLocation(location: BDLocation?) {
             //mapView 销毁后不在处理新接收的位置
             if (location == null || mapView == null) {
@@ -94,6 +114,9 @@ class TransportCar : AppCompatActivity() {
                 // 此处设置开发者获取到的方向信息，顺时针0-360
                 .direction(location.direction).latitude(location.latitude)
                 .longitude(location.longitude).build()
+            location.altitude
+            location.latitude
+            location.locationWhere
             baiduMap.setMyLocationData(locData)
         }
     }
