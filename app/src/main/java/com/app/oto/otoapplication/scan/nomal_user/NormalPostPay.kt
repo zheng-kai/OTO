@@ -1,0 +1,21 @@
+package com.app.oto.otoapplication.scan.nomal_user
+
+import android.os.Bundle
+import android.support.v4.content.res.ResourcesCompat
+import android.support.v7.app.AppCompatActivity
+import com.app.oto.otoapplication.R
+import kotlinx.android.synthetic.main.navigation_layout.*
+import kotlinx.android.synthetic.main.scan_result_normal_post_pay.*
+
+class NormalPostPay:AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.scan_result_normal_post_pay)
+        scan_normal_post_pay_navigation.apply {
+            btn_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+        }
+        img_post_pay_back.setOnClickListener {
+            onBackPressed()
+        }
+    }
+}

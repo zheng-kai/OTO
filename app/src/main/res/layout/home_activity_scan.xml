@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+            android:background="@drawable/toolbar_background"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+        <ImageView
+                android:id="@+id/img_scan_back"
+                android:background="@color/colorOTOWhite"
+                android:layout_marginStart="22dp"
+                android:layout_width="8dp"
+                android:layout_height="15dp"/>
+        <TextView
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="i-信鸽"
+                android:textColor="@color/colorOTOWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+    </android.support.v7.widget.Toolbar>
+    <cn.bingoogolapple.qrcode.zxing.ZXingView
+            android:id="@+id/zx_scan"
+            app:qrcv_toolbarHeight="48dp"
+            app:qrcv_tipTextColor="@color/white"
+            app:qrcv_isTipTextBelowRect="true"
+            app:qrcv_tipTextSize="10sp"
+            app:qrcv_cornerColor="#4A7C97"
+            app:qrcv_scanLineColor="#4A7C97"
+            app:qrcv_qrCodeTipText="将二维码放入框内，即可自动扫码"
+            app:qrcv_isShowTipTextAsSingleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    <include
+            android:id="@+id/scan_home_navigation"
+            layout="@layout/navigation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+    />
+</LinearLayout>

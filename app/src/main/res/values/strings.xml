@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">OTOApplication</string>
+    <string name="app_name">i-信鸽</string>
+    <string name="dialog_text">如果因为自身原因取消订\n单，将在一天内无法接单</string>
 </resources>
