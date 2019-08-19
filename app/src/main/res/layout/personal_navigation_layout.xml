@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:background="@drawable/toolbar_background"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+    <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        <Button
+                android:background="@mipmap/home"
+                android:id="@+id/btn_home"
+                android:layout_gravity="center"
+                android:layout_width="18dp"
+                android:layout_height="18dp"/>
+    </FrameLayout>
+    <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        <Button
+                android:background="@mipmap/transport"
+                android:id="@+id/btn_transport"
+                android:layout_gravity="center"
+                android:layout_width="24dp"
+                android:layout_height="18dp"/>
+    </FrameLayout>
+    <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        <Button
+                android:background="@mipmap/personal_clicked"
+                android:id="@+id/btn_personal_clicked"
+                android:layout_gravity="center"
+                android:layout_width="15dp"
+                android:layout_height="18dp"/>
+    </FrameLayout>
+</LinearLayout>

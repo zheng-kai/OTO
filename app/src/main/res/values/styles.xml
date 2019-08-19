@@ -8,10 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:statusBarColor">@color/colorOTOBlue</item>
     </style>
+
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">#A9A9A9</item>
+        <item name="android:textSize">20sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">#A9A9A9</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+
     <style name="cardViewStyle" parent="CardView.Light">
         <item name="cardElevation">4dp</item>
         <item name="cardBackgroundColor">@color/white</item>
         <item name="cardCornerRadius">8dp</item>
         <item name="android:shadowColor">#14808080</item>
+
     </style>
 </resources>

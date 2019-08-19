@@ -35,13 +35,32 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
+        <activity android:name=".personal.human.HumanActivity">
+        </activity>
+        <activity android:name=".personal.face.FaceActivity">
+        </activity>
+        <activity android:name=".personal.friend.FriendActivity">
+        </activity>
+        <activity android:name=".personal.vehicle.VehicleActivity">
+        </activity>
+        <activity android:name=".personal.help.HelpActivity">
+        </activity>
+        <activity android:name=".personal.main.PersonalActivity">
+
+
         <activity android:name=".transport.TransportHome">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".OTOActivity">
+        </activity>
+        <activity android:name=".transport.TransportHome"/>
+
         <!--<activity android:name=".transport.TransportHome"/>-->
         <activity android:name=".transport.TransportCar"/>
         <activity android:name=".transport.TransportCrowdsource"/>
@@ -61,6 +80,7 @@
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
                 android:value="T0yzhVnfSpi4obUtH80st6fplWXRM8uu"/>
+
     </application>
 
 </manifest>
