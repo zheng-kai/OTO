@@ -19,6 +19,8 @@
         <item name="colorControlNormal">#A9A9A9</item>
         <item name="colorControlActivated">@color/colorAccent</item>
 
+    </style>
+
     <style name="cardViewStyle" parent="CardView.Light">
         <item name="cardElevation">4dp</item>
         <item name="cardBackgroundColor">@color/white</item>
