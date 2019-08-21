@@ -36,6 +36,9 @@ class TransportCar : AppCompatActivity() {
         }
         transport_car_navigation.apply {
             btn_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+            btn_transport.setOnClickListener {
+                startActivity(Intent(this@TransportCar,TransportHome::class.java))
+            }
         }
         rec_transport_car.layoutManager = LinearLayoutManager(this)
         rec_transport_car.withItems {
