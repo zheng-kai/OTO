@@ -7,10 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
-import com.app.oto.otoapplication.scan.car_user.ScanCar
-import com.app.oto.otoapplication.scan.crowdsource_user.ScanCrowdsource
 import com.app.oto.otoapplication.scan.nomal_user.NormalPost
-import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_crowdsource.*
 import com.baidu.location.LocationClientOption
@@ -26,7 +23,7 @@ class TransportCrowdsource : AppCompatActivity() {
             onBackPressed()
         }
         transport_crowdsource_navigation.apply {
-            btn_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
+            img_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
         }
         rec_transport_crowdsource.layoutManager = LinearLayoutManager(this)
         rec_transport_crowdsource.withItems {

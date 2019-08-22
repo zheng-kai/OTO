@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.scan.add
-import com.app.oto.otoapplication.transport.add
 import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_crowdsource_pick.*
 
@@ -16,7 +15,7 @@ class CrowdsourcePick:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scan_result_crowdsource_pick)
         scan_crowdsource_pick_up_navigation.apply {
-            btn_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
         }
         img_crowdsource_pick_up_back.setOnClickListener {
             onBackPressed()

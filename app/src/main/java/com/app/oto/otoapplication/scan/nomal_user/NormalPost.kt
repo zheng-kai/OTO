@@ -11,11 +11,8 @@ import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.scan.add
 import com.app.oto.otoapplication.transport.TransportHome
-import com.app.oto.otoapplication.transport.add
-import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.scan_result_normal_post.*
-import org.jetbrains.anko.startActivity
 
 class NormalPost : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +20,8 @@ class NormalPost : AppCompatActivity() {
         setContentView(R.layout.scan_result_normal_post)
         val anim = AnimationUtils.loadAnimation(this, R.anim.dialog_top_in)
         scan_normal_post_navigation.apply {
-            btn_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
-            btn_transport.setOnClickListener {
+            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_transport.setOnClickListener {
                 startActivity(Intent(this@NormalPost, TransportHome::class.java))
             }
         }

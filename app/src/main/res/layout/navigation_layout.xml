@@ -9,33 +9,39 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
-        <Button
-                android:background="@mipmap/home"
-                android:id="@+id/btn_home"
+        <ImageView
+                android:padding="15dp"
+                android:src="@mipmap/home"
+                android:id="@+id/img_home"
                 android:layout_gravity="center"
-                android:layout_width="18dp"
-                android:layout_height="18dp"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="home"/>
     </FrameLayout>
     <FrameLayout
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
-        <Button
-                android:background="@mipmap/transport"
-                android:id="@+id/btn_transport"
+        <ImageView
+                android:padding="15dp"
+                android:src="@mipmap/transport"
+                android:id="@+id/img_transport"
                 android:layout_gravity="center"
-                android:layout_width="24dp"
-                android:layout_height="18dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="transport"/>
     </FrameLayout>
     <FrameLayout
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
-        <Button
-                android:background="@mipmap/personal"
-                android:id="@+id/btn_personal"
+        <ImageView
+                android:padding="15dp"
+                android:src="@mipmap/personal"
+                android:id="@+id/img_personal"
                 android:layout_gravity="center"
-                android:layout_width="15dp"
-                android:layout_height="18dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="personal"/>
     </FrameLayout>
 </LinearLayout>

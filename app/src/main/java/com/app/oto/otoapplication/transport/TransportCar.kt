@@ -18,9 +18,7 @@ import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapView
 import com.baidu.mapapi.map.MyLocationData
 import com.baidu.mapapi.map.MarkerOptions
-import com.baidu.mapapi.map.OverlayOptions
 import com.baidu.mapapi.map.BitmapDescriptorFactory
-import com.baidu.mapapi.map.BitmapDescriptor
 import com.baidu.mapapi.model.LatLng
 
 
@@ -35,8 +33,8 @@ class TransportCar : AppCompatActivity() {
             onBackPressed()
         }
         transport_car_navigation.apply {
-            btn_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
-            btn_transport.setOnClickListener {
+            img_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+            img_transport.setOnClickListener {
                 startActivity(Intent(this@TransportCar,TransportHome::class.java))
             }
         }
@@ -54,6 +52,7 @@ class TransportCar : AppCompatActivity() {
         baiduMap.isTrafficEnabled = true
         baiduMap.isMyLocationEnabled = true
         baiduMap.setOnMarkerClickListener {
+
             false
         }
         //定位初始化
@@ -80,6 +79,7 @@ class TransportCar : AppCompatActivity() {
         //构建MarkerOption，用于在地图上添加Marker
         val markOption = MarkerOptions()
             .position(point)
+            .perspective(true)
             .icon(bitmap)
         //在地图上添加Marker，并显示
         baiduMap.addOverlay(markOption)

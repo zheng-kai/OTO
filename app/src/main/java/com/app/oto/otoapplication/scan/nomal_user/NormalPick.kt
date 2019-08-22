@@ -15,7 +15,7 @@ class NormalPick :AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scan_result_normal_pick)
         scan_pick_up_navigation.apply {
-            btn_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
         }
         img_pick_up_back.setOnClickListener {
             onBackPressed()

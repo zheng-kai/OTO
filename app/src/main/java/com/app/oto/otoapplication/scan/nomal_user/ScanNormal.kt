@@ -16,7 +16,7 @@ class ScanNormal:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scan_result_normal)
         scan_normal_navigation.apply {
-            btn_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
         }
         img_scan_normal_back.setOnClickListener {
             onBackPressed()

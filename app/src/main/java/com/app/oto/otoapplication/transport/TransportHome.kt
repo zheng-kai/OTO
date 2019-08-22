@@ -28,7 +28,7 @@ class TransportHome : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity_transport)
         transport_home_navigation.apply {
-            btn_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+            img_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
         }
         cd_car.setOnClickListener {
             startActivity(Intent(this, TransportCar::class.java))

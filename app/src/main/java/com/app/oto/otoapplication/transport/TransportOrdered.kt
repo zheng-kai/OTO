@@ -18,7 +18,7 @@ class TransportOrdered:AppCompatActivity(){
             onBackPressed()
         }
         transport_order_navigation.apply {
-            btn_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
+            img_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
         }
         rec_car_transport_ordered.layoutManager = LinearLayoutManager(this)
         rec_car_transport_ordered.withItems {

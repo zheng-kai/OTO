@@ -11,7 +11,7 @@
             android:layout_height="match_parent">
         <Button
                 android:background="@mipmap/home"
-                android:id="@+id/btn_home"
+                android:id="@+id/img_home"
                 android:layout_gravity="center"
                 android:layout_width="18dp"
                 android:layout_height="18dp"/>
@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
         <Button
                 android:background="@mipmap/transport"
-                android:id="@+id/btn_transport"
+                android:id="@+id/img_transport"
                 android:layout_gravity="center"
                 android:layout_width="24dp"
                 android:layout_height="18dp"/>

@@ -24,7 +24,7 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity_scan)
         scan_home_navigation.apply {
-            btn_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
         }
         img_scan_back.setOnClickListener {
             onBackPressed()
