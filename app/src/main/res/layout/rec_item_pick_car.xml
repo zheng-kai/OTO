@@ -14,7 +14,7 @@
         <TextView
                 android:id="@+id/tv_car_pick_title"
                 android:text="包裹1"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="@color/colorOTOBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -23,19 +23,19 @@
                 android:id="@+id/tv_car_pick_box_id"
                 android:layout_marginTop="4dp"
                 android:text="智能环保箱编号：1234567805"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorOTOGray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <Button android:text="取件"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="@color/white"
                 android:id="@+id/btn_car_pick"
-                android:layout_width="63dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
                 android:background="@drawable/button_background_green"
-                app:layout_constraintTop_toTopOf="@+id/tv_car_pick_box_id"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_car_pick_box_id"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
         />
     </android.support.constraint.ConstraintLayout>

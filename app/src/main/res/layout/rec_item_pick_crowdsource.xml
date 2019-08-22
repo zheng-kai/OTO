@@ -14,7 +14,7 @@
         <TextView
                 android:id="@+id/tv_crowdsource_pick_title"
                 android:text="包裹1"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="@color/colorOTOBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -22,7 +22,7 @@
                 android:id="@+id/tv_crowdsource_pick_box_id"
                 android:layout_marginTop="4dp"
                 android:text="智能环保箱编号：1234567805"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorOTOGray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -30,7 +30,7 @@
                 android:id="@+id/tv_crowdsource_pick_destination"
                 android:layout_marginTop="4dp"
                 android:text="送货地点：xxxxxxxxxxxxxxxxxxx"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorOTOGray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -42,7 +42,7 @@
             <TextView
                     android:id="@+id/tv_crowdsource_pick_name"
                     android:text="寄件者：Jack"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorOTOGray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -50,7 +50,7 @@
                     android:id="@+id/tv_crowdsource_pick_phone"
                     android:layout_marginStart="15dp"
                     android:text="联系电话：1524592120"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorOTOGray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -58,11 +58,11 @@
     </LinearLayout>
     <Button android:layout_gravity="center_vertical"
             android:text="取件"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="@color/white"
             android:id="@+id/btn_crowdsource_rec_item_pick"
-            android:layout_width="63dp"
-            android:layout_height="21dp"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
             android:background="@drawable/button_background_green"
     />
 </LinearLayout>

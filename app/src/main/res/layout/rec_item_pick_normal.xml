@@ -14,7 +14,7 @@
         <TextView
                 android:id="@+id/tv_normal_pick_title"
                 android:text="包裹1"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="@color/colorOTOBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -22,7 +22,7 @@
                 android:id="@+id/tv_normal_pick_box_id"
                 android:layout_marginTop="4dp"
                 android:text="智能环保箱编号：1234567805"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorOTOGray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -30,7 +30,7 @@
                 android:id="@+id/tv_normal_pick_date"
                 android:layout_marginTop="4dp"
                 android:text="到达时间内：2019-8-1 08：30"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorOTOGray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -41,21 +41,21 @@
             <TextView
                     android:id="@+id/tv_normal_pick_name"
                     android:text="寄件者：Jack"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorOTOGray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             <TextView
                     android:layout_marginStart="15dp"
                     android:text="付款状态："
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorOTOGray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             <TextView
                     android:id="@+id/tv_normal_pick_pay_status"
                     android:text="未付款"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorOTOGray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -64,7 +64,7 @@
                 android:id="@+id/tv_normal_pick_content"
                 android:layout_marginTop="4dp"
                 android:text="包裹内容：xxxxxxxxxxxxxxxxxxxxxx"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorOTOGray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -73,9 +73,9 @@
             android:id="@+id/btn_rec_item_scan_normal"
             android:layout_gravity="center_vertical"
             android:text="付款"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="@color/white"
             android:background="@mipmap/big_dot_red"
-            android:layout_width="28dp"
-            android:layout_height="28dp"/>
+            android:layout_width="33dp"
+            android:layout_height="33dp"/>
 </LinearLayout>
