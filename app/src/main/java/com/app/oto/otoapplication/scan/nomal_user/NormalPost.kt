@@ -8,13 +8,32 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.animation.AnimationUtils
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
+import com.alibaba.fastjson.JSON
 import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.scan.add
 import com.app.oto.otoapplication.transport.TransportHome
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.scan_result_normal_post.*
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.IOException
 
 class NormalPost : AppCompatActivity() {
+    /** 所有省 */
+    lateinit var provinceDatas: List<ProvinceEntity>
+    /** 所有市  */
+    lateinit var cityDatas: List<CityEntity>
+    /** 所有区  */
+    lateinit var districtDatas: List<DistrictEntity>
+    /** 当前省下显示市  */
+    private val currentCitiesDatas = ArrayList<CityEntity>()
+    /** 当前市下显示县  */
+    private val currentDistrictsDatas = ArrayList<DistrictEntity>()
+    /** 省截取2位代码  */
+    private var provinceChargeCode: String? = null
+    /** 市截取2位代码  */
+    private var cityChargeCode: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scan_result_normal_post)
@@ -45,5 +64,102 @@ class NormalPost : AppCompatActivity() {
             frame_normal_post_dialog.visibility = View.GONE
             startActivity(Intent(this, NormalPostPay::class.java))
         }
+        parseArray()
+
+        selectProvince()
+    }
+
+    private fun selectProvince() {
+        val provinceAdapter = SpinnerAdapter()
+        val data = ArrayList<String>().apply {
+            provinceDatas.forEach {
+                add(it.text)
+            }
+        }
+        provinceAdapter.setData(data)
+        spinner_province.adapter = provinceAdapter
+        spinner_province.setSelection(0)
+        spinner_province.setOnItemClickListener { parent, view, position, id ->
+            provinceChargeCode = provinceDatas[position].id.subSequence(0, 2).toString()
+            cityDatas.forEach {
+                if (it.id.subSequence(0, 2).toString() == provinceChargeCode) {
+                    currentCitiesDatas.add(it)
+                }
+            }
+            selectCity()
+        }
+    }
+
+    private fun selectCity() {
+        val cityAdapter = SpinnerAdapter()
+        val data = ArrayList<String>().apply {
+            currentCitiesDatas.forEach {
+                add(it.text)
+            }
+        }
+        cityAdapter.setData(data)
+        spinner_city.adapter = cityAdapter
+        spinner_city.setSelection(0)
+        spinner_city.setOnItemClickListener { parent, view, position, id ->
+            cityChargeCode = currentCitiesDatas[position].id.subSequence(0, 2).toString()
+            districtDatas.forEach {
+                if (it.id.subSequence(0, 2).toString() == cityChargeCode) {
+                    currentDistrictsDatas.add(it)
+                }
+            }
+            selectDistrict()
+        }
+    }
+
+    private fun selectDistrict() {
+        val districtAdapter = SpinnerAdapter()
+        val data = ArrayList<String>().apply {
+            currentDistrictsDatas.forEach {
+                add(it.text)
+            }
+        }
+        districtAdapter.setData(data)
+        spinner_city.adapter = districtAdapter
+        spinner_city.setSelection(0)
+
+    }
+
+    /**
+     * 解析出所有省市县
+     */
+    private fun parseArray() {
+        try {
+            val jObject = JSONObject(getAddress())
+            val provinceArray = jObject.getJSONArray("province")
+            val cityArray = jObject.getJSONArray("city")
+            val countyArray = jObject.getJSONArray("district")
+            provinceDatas = JSON.parseArray(provinceArray.toString(), ProvinceEntity::class.java)
+            cityDatas = JSON.parseArray(cityArray.toString(), CityEntity::class.java)
+            districtDatas = JSON.parseArray(countyArray.toString(), DistrictEntity::class.java)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+    }
+
+    /**
+     * 从资源文件中获取json字符串
+     *
+     * @return
+     */
+    private fun getAddress(): String {
+        val sb = StringBuilder()
+        try {
+            val inputStream = resources.openRawResource(R.raw.area)
+            val buffer = ByteArray(1024)
+            while (inputStream.read(buffer) != -1) {
+                sb.append(String(buffer, Charsets.UTF_8))
+            }
+            inputStream.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return sb.toString()
     }
 }
