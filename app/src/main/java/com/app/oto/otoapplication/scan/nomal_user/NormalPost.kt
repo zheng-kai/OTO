@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.AdapterView
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.alibaba.fastjson.JSON
 import com.app.oto.otoapplication.R
@@ -14,6 +15,7 @@ import com.app.oto.otoapplication.scan.add
 import com.app.oto.otoapplication.transport.TransportHome
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.scan_result_normal_post.*
+import org.jetbrains.anko.image
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -39,7 +41,7 @@ class NormalPost : AppCompatActivity() {
         setContentView(R.layout.scan_result_normal_post)
         val anim = AnimationUtils.loadAnimation(this, R.anim.dialog_top_in)
         scan_normal_post_navigation.apply {
-            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
             img_transport.setOnClickListener {
                 startActivity(Intent(this@NormalPost, TransportHome::class.java))
             }
@@ -73,54 +75,92 @@ class NormalPost : AppCompatActivity() {
         val provinceAdapter = SpinnerAdapter()
         val data = ArrayList<String>().apply {
             provinceDatas.forEach {
-                add(it.text)
+                it.text?.let { text ->
+                    add(text)
+                }
+
             }
         }
         provinceAdapter.setData(data)
         spinner_province.adapter = provinceAdapter
         spinner_province.setSelection(0)
-        spinner_province.setOnItemClickListener { parent, view, position, id ->
-            provinceChargeCode = provinceDatas[position].id.subSequence(0, 2).toString()
-            cityDatas.forEach {
-                if (it.id.subSequence(0, 2).toString() == provinceChargeCode) {
-                    currentCitiesDatas.add(it)
-                }
+        spinner_province.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
             }
-            selectCity()
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                provinceChargeCode = provinceDatas[position].id?.subSequence(0, 2).toString()
+                cityDatas.forEach {
+                    if (it.id?.subSequence(0, 2).toString() == provinceChargeCode) {
+                        currentCitiesDatas.add(it)
+                    }
+                }
+                selectCity()
+            }
+
         }
+//        spinner_province.setOnItemClickListener { parent, view, position, id ->
+//            provinceChargeCode = provinceDatas[position].id?.subSequence(0, 2).toString()
+//            cityDatas.forEach {
+//                if (it.id?.subSequence(0, 2).toString() == provinceChargeCode) {
+//                    currentCitiesDatas.add(it)
+//                }
+//            }
+//            selectCity()
+//        }
     }
 
     private fun selectCity() {
         val cityAdapter = SpinnerAdapter()
         val data = ArrayList<String>().apply {
             currentCitiesDatas.forEach {
-                add(it.text)
+                it.text?.let { text ->
+                    add(text)
+                }
             }
         }
         cityAdapter.setData(data)
         spinner_city.adapter = cityAdapter
         spinner_city.setSelection(0)
-        spinner_city.setOnItemClickListener { parent, view, position, id ->
-            cityChargeCode = currentCitiesDatas[position].id.subSequence(0, 2).toString()
-            districtDatas.forEach {
-                if (it.id.subSequence(0, 2).toString() == cityChargeCode) {
-                    currentDistrictsDatas.add(it)
-                }
+        spinner_city.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
             }
-            selectDistrict()
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                cityChargeCode = currentCitiesDatas[position].id?.subSequence(0, 2).toString()
+                districtDatas.forEach {
+                    if (it.id?.subSequence(0, 2).toString() == cityChargeCode) {
+                        currentDistrictsDatas.add(it)
+                    }
+                }
+                selectDistrict()
+            }
+
         }
+
+//        spinner_city.setOnItemClickListener { parent, view, position, id ->
+//            cityChargeCode = currentCitiesDatas[position].id?.subSequence(0, 2).toString()
+//            districtDatas.forEach {
+//                if (it.id?.subSequence(0, 2).toString() == cityChargeCode) {
+//                    currentDistrictsDatas.add(it)
+//                }
+//            }
+//            selectDistrict()
+//        }
     }
 
     private fun selectDistrict() {
         val districtAdapter = SpinnerAdapter()
         val data = ArrayList<String>().apply {
             currentDistrictsDatas.forEach {
-                add(it.text)
+                it.text?.let { text ->
+                    add(text)
+                }
             }
         }
         districtAdapter.setData(data)
-        spinner_city.adapter = districtAdapter
-        spinner_city.setSelection(0)
+        spinner_district.adapter = districtAdapter
+        spinner_district.setSelection(0)
 
     }
 

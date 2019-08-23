@@ -8,6 +8,7 @@ import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_ordered.*
+import org.jetbrains.anko.image
 import kotlin.random.Random
 
 class TransportOrdered:AppCompatActivity(){
@@ -18,7 +19,7 @@ class TransportOrdered:AppCompatActivity(){
             onBackPressed()
         }
         transport_order_navigation.apply {
-            img_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
+            img_transport.image = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
         }
         rec_car_transport_ordered.layoutManager = LinearLayoutManager(this)
         rec_car_transport_ordered.withItems {

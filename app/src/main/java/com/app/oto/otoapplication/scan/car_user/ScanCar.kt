@@ -9,13 +9,14 @@ import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.scan.add
 import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_car.*
+import org.jetbrains.anko.image
 
 class ScanCar:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scan_result_car)
         scan_car_pick_up_navigation.apply {
-            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
         }
         img_car_pick_back.setOnClickListener {
             onBackPressed()

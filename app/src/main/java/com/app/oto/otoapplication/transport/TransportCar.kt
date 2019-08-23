@@ -20,6 +20,7 @@ import com.baidu.mapapi.map.MyLocationData
 import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.map.BitmapDescriptorFactory
 import com.baidu.mapapi.model.LatLng
+import org.jetbrains.anko.image
 
 
 class TransportCar : AppCompatActivity() {
@@ -33,7 +34,7 @@ class TransportCar : AppCompatActivity() {
             onBackPressed()
         }
         transport_car_navigation.apply {
-            img_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+            img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
             img_transport.setOnClickListener {
                 startActivity(Intent(this@TransportCar,TransportHome::class.java))
             }

@@ -13,6 +13,7 @@ import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import com.app.oto.otoapplication.transport.TransportHomeFragment
 import kotlinx.android.synthetic.main.activity_oto.*
 import kotlinx.android.synthetic.main.navigation_layout.view.*
+import org.jetbrains.anko.image
 
 class OTOActivity : AppCompatActivity() {
     lateinit var help: TextView
@@ -40,13 +41,13 @@ class OTOActivity : AppCompatActivity() {
             .add(R.id.fragment_container_home, TransportHomeFragment.newInstance(), "fTransport")
             .commit()
         transport_home_navigation.apply {
-            img_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+            img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
             img_transport.setOnClickListener {
                 help.visibility = View.GONE
                 img.visibility = View.GONE
-                img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home, null)
-                img_personal.background = ResourcesCompat.getDrawable(resources, R.mipmap.personal, null)
-                it.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+                img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home, null)
+                img_personal.image = ResourcesCompat.getDrawable(resources, R.mipmap.personal, null)
+                img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
                 val fragment =
                     this@OTOActivity.supportFragmentManager.findFragmentByTag("fTransport")
                         ?: TransportHomeFragment.newInstance()
@@ -59,9 +60,9 @@ class OTOActivity : AppCompatActivity() {
             }
             img_personal.setOnClickListener {
                 help.visibility = View.VISIBLE
-                img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home, null)
-                it.background = ResourcesCompat.getDrawable(resources, R.mipmap.personal_clicked, null)
-                img_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport, null)
+                img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home, null)
+                img_personal.image = ResourcesCompat.getDrawable(resources, R.mipmap.personal_clicked, null)
+                img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport, null)
                 val fragment =
                     this@OTOActivity.supportFragmentManager.findFragmentByTag("fPersonal")
                         ?: PersonalFragment.newInstance()

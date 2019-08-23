@@ -10,13 +10,14 @@ import com.app.oto.otoapplication.scan.GridViewAdapter
 import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_crowdsource.*
 import kotlinx.android.synthetic.main.scan_result_crowdsource.view.*
+import org.jetbrains.anko.image
 
 class ScanCrowdsource:AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scan_result_crowdsource)
         scan_crowdsource_navigation.apply {
-            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
         }
         img_scan_crowdsource_back.setOnClickListener {
             onBackPressed()

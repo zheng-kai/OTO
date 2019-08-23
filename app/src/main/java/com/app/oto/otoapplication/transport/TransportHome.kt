@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import com.app.oto.otoapplication.R
 import kotlinx.android.synthetic.main.home_activity_transport.*
 import kotlinx.android.synthetic.main.navigation_layout.view.*
+import org.jetbrains.anko.image
 import pub.devrel.easypermissions.EasyPermissions
 
 class TransportHome : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
@@ -28,7 +29,7 @@ class TransportHome : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity_transport)
         transport_home_navigation.apply {
-            img_transport.background = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+            img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
         }
         cd_car.setOnClickListener {
             startActivity(Intent(this, TransportCar::class.java))

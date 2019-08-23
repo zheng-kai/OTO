@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_crowdsource.*
 import com.baidu.location.LocationClientOption
 import com.baidu.location.LocationClient
-
+import org.jetbrains.anko.image
 
 
 class TransportCrowdsource : AppCompatActivity() {
@@ -23,7 +23,7 @@ class TransportCrowdsource : AppCompatActivity() {
             onBackPressed()
         }
         transport_crowdsource_navigation.apply {
-            img_transport.background = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
+            img_transport.image = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
         }
         rec_transport_crowdsource.layoutManager = LinearLayoutManager(this)
         rec_transport_crowdsource.withItems {

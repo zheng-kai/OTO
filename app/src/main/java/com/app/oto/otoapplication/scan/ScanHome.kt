@@ -14,6 +14,7 @@ import android.util.Log
 import android.widget.Toast
 import cn.bingoogolapple.qrcode.core.BarcodeType
 import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
+import org.jetbrains.anko.image
 import pub.devrel.easypermissions.EasyPermissions
 
 
@@ -24,7 +25,7 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity_scan)
         scan_home_navigation.apply {
-            img_home.background = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
         }
         img_scan_back.setOnClickListener {
             onBackPressed()
