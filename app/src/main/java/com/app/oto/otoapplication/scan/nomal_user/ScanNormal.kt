@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_normal.*
 import kotlinx.android.synthetic.main.scan_result_normal.view.*
 import org.jetbrains.anko.image
+import org.jetbrains.anko.startActivity
 
 class ScanNormal:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,7 @@ class ScanNormal:AppCompatActivity() {
         }
         cd_scan_normal_boxes.btn_scan_normal_confirm.setOnClickListener {
             cd_scan_normal_boxes.visibility = View.INVISIBLE
+            startActivity(Intent(this,NormalPost::class.java))
         }
     }
 }

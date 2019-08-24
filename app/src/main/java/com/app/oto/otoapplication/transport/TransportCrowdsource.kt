@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.scan.ScanHome
 import com.app.oto.otoapplication.scan.nomal_user.NormalPost
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_crowdsource.*
 import com.baidu.location.LocationClientOption
 import com.baidu.location.LocationClient
 import org.jetbrains.anko.image
+import org.jetbrains.anko.startActivity
 
 
 class TransportCrowdsource : AppCompatActivity() {
@@ -32,7 +34,9 @@ class TransportCrowdsource : AppCompatActivity() {
             }
         }
         img_crowdsource_scan.setOnClickListener {
-            startActivity(Intent(this, NormalPost::class.java))
+            val intent = Intent(this, ScanHome::class.java)
+            intent.putExtra("type","CrowdSource")
+            startActivity(intent)
         }
         val baiduMap = map_transport_crowdscource.map
 //        baiduMap.isTrafficEnabled = true

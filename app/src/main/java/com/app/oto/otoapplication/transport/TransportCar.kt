@@ -21,6 +21,7 @@ import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.map.BitmapDescriptorFactory
 import com.baidu.mapapi.model.LatLng
 import org.jetbrains.anko.image
+import org.jetbrains.anko.startActivity
 
 
 class TransportCar : AppCompatActivity() {
@@ -46,7 +47,9 @@ class TransportCar : AppCompatActivity() {
             }
         }
         img_car_scan.setOnClickListener {
-            startActivity(Intent(this, ScanHome::class.java))
+            val intent = Intent(this, ScanHome::class.java)
+            intent.putExtra("type","Car")
+            startActivity(intent)
         }
         mapView = map_transport_car
         baiduMap = map_transport_car.map
