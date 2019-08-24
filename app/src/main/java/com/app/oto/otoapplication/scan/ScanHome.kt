@@ -13,6 +13,7 @@ import android.os.Vibrator
 import android.util.Log
 import android.widget.Toast
 import cn.bingoogolapple.qrcode.core.BarcodeType
+import com.app.oto.otoapplication.commons.setNavigationClickListener
 import com.app.oto.otoapplication.scan.car_user.ScanCar
 import com.app.oto.otoapplication.scan.crowdsource_user.ScanCrowdsource
 import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
@@ -29,6 +30,7 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
         setContentView(R.layout.home_activity_scan)
         scan_home_navigation.apply {
             img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            setNavigationClickListener(this@ScanHome)
         }
         img_scan_back.setOnClickListener {
             onBackPressed()

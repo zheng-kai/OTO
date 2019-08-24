@@ -6,6 +6,7 @@ import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.commons.setNavigationClickListener
 import com.app.oto.otoapplication.scan.GridViewAdapter
 import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_normal.*
@@ -19,6 +20,7 @@ class ScanNormal:AppCompatActivity() {
         setContentView(R.layout.scan_result_normal)
         scan_normal_navigation.apply {
             img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            setNavigationClickListener(this@ScanNormal)
         }
         img_scan_normal_back.setOnClickListener {
             onBackPressed()

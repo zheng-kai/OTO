@@ -11,8 +11,8 @@ import android.widget.AdapterView
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.alibaba.fastjson.JSON
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.commons.setNavigationClickListener
 import com.app.oto.otoapplication.scan.add
-import com.app.oto.otoapplication.transport.TransportHome
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.scan_result_normal_post.*
 import org.jetbrains.anko.image
@@ -42,9 +42,7 @@ class NormalPost : AppCompatActivity() {
         val anim = AnimationUtils.loadAnimation(this, R.anim.dialog_top_in)
         scan_normal_post_navigation.apply {
             img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
-            img_transport.setOnClickListener {
-                startActivity(Intent(this@NormalPost, TransportHome::class.java))
-            }
+            setNavigationClickListener(this@NormalPost)
         }
         img_post_back.setOnClickListener {
             onBackPressed()

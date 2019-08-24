@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.commons.setNavigationClickListener
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_ordered.*
 import org.jetbrains.anko.image
@@ -20,6 +21,7 @@ class TransportOrdered:AppCompatActivity(){
         }
         transport_order_navigation.apply {
             img_transport.image = ResourcesCompat.getDrawable(resources,R.mipmap.transport_clicked,null)
+            setNavigationClickListener(this@TransportOrdered)
         }
         rec_car_transport_ordered.layoutManager = LinearLayoutManager(this)
         rec_car_transport_ordered.withItems {
