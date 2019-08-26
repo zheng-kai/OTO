@@ -7,15 +7,55 @@ import com.app.oto.otoapplication.R
 import com.app.oto.otoapplication.personal.base.BaseActivity
 import com.app.oto.otoapplication.personal.base.getMyIntent
 import com.app.oto.otoapplication.scan.ScanHome
-import kotlinx.android.synthetic.main.activity_home_main.view.*
+import com.app.oto.otoapplication.transport.MyLocationListener
+import com.baidu.location.LocationClient
+import com.baidu.location.LocationClientOption
+import com.baidu.mapapi.map.BaiduMap
+import com.baidu.mapapi.map.MapView
 
 class homeMainpageActivity: BaseActivity() {
+    private lateinit var mMapView: MapView
+    private lateinit var mMap:BaiduMap
+    private lateinit var mLocationClient: LocationClient
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_home_main)
         super.onCreate(savedInstanceState)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mMapView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mMapView.onPause()
+    }
+
+    override fun onDestroy() {
+        mLocationClient.stop()
+        mMap.isMyLocationEnabled = false
+        mMapView.onDestroy()
+        super.onDestroy()
     }
 
     override fun initView() {
+        mMapView = findViewById(R.id.map_home)
+        mMap = mMapView.map
+        mMap.mapType= BaiduMap.MAP_TYPE_SATELLITE
+        mMap.isMyLocationEnabled = true
+        mLocationClient = LocationClient(this)
+        val option = LocationClientOption()
+        option.apply {
+            openGps = true
+            coorType = "bd09ll"
+            scanSpan = 1000
+        }
+        mLocationClient.locOption = option
+        val myLocationListener = MyLocationListener(mMap,mMapView)
+        mLocationClient.registerLocationListener(myLocationListener)
+        mLocationClient.start()
 
         findViewById<CardView>(R.id.main_message).setOnClickListener {
            startActivity(getMyIntent(this,MessageActivity::class.java))
@@ -35,5 +75,6 @@ class homeMainpageActivity: BaseActivity() {
             startActivity(getMyIntent(this,ScanHome::class.java))
         }
     }
+
 
 }
