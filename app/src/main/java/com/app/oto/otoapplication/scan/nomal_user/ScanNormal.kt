@@ -6,11 +6,13 @@ import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.commons.setNavigationClickListener
 import com.app.oto.otoapplication.scan.GridViewAdapter
 import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.scan_result_normal.*
 import kotlinx.android.synthetic.main.scan_result_normal.view.*
 import org.jetbrains.anko.image
+import org.jetbrains.anko.startActivity
 
 class ScanNormal:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +20,7 @@ class ScanNormal:AppCompatActivity() {
         setContentView(R.layout.scan_result_normal)
         scan_normal_navigation.apply {
             img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            setNavigationClickListener(this@ScanNormal)
         }
         img_scan_normal_back.setOnClickListener {
             onBackPressed()
@@ -33,6 +36,7 @@ class ScanNormal:AppCompatActivity() {
         }
         cd_scan_normal_boxes.btn_scan_normal_confirm.setOnClickListener {
             cd_scan_normal_boxes.visibility = View.INVISIBLE
+            startActivity(Intent(this,NormalPost::class.java))
         }
     }
 }

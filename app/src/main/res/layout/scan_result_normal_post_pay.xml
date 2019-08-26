@@ -12,7 +12,7 @@
             android:layout_height="48dp">
         <ImageView
                 android:id="@+id/img_post_pay_back"
-                android:src="@color/colorOTOWhite"
+                android:src="@drawable/img_back"
                 android:layout_marginStart="22dp"
                 android:padding="12dp"
                 android:layout_width="48dp"

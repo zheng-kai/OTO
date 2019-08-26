@@ -10,11 +10,12 @@
             android:layout_width="match_parent"
             android:layout_height="48dp">
         <ImageView
+                android:padding="12dp"
                 android:id="@+id/img_scan_back"
-                android:background="@color/colorOTOWhite"
+                android:src="@drawable/img_back"
                 android:layout_marginStart="22dp"
-                android:layout_width="8dp"
-                android:layout_height="15dp"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"/>
         <TextView
                 android:textStyle="bold"
                 android:textSize="15sp"

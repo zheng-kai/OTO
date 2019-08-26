@@ -6,7 +6,9 @@ import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
+import com.app.oto.otoapplication.OTOActivity
 import com.app.oto.otoapplication.R
+import com.app.oto.otoapplication.commons.setNavigationClickListener
 import com.app.oto.otoapplication.scan.ScanHome
 import com.baidu.location.BDAbstractLocationListener
 import com.baidu.location.BDLocation
@@ -21,6 +23,7 @@ import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.map.BitmapDescriptorFactory
 import com.baidu.mapapi.model.LatLng
 import org.jetbrains.anko.image
+import org.jetbrains.anko.startActivity
 
 
 class TransportCar : AppCompatActivity() {
@@ -35,9 +38,7 @@ class TransportCar : AppCompatActivity() {
         }
         transport_car_navigation.apply {
             img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
-            img_transport.setOnClickListener {
-                startActivity(Intent(this@TransportCar,TransportHome::class.java))
-            }
+            setNavigationClickListener(this@TransportCar)
         }
         rec_transport_car.layoutManager = LinearLayoutManager(this)
         rec_transport_car.withItems {
@@ -46,7 +47,9 @@ class TransportCar : AppCompatActivity() {
             }
         }
         img_car_scan.setOnClickListener {
-            startActivity(Intent(this, ScanHome::class.java))
+            val intent = Intent(this, ScanHome::class.java)
+            intent.putExtra("type","Car")
+            startActivity(intent)
         }
         mapView = map_transport_car
         baiduMap = map_transport_car.map
