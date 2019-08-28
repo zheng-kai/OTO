@@ -16,20 +16,18 @@ import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.transport_car.*
 import com.baidu.location.LocationClientOption
 import com.baidu.location.LocationClient
-import com.baidu.mapapi.map.BaiduMap
-import com.baidu.mapapi.map.MapView
-import com.baidu.mapapi.map.MyLocationData
-import com.baidu.mapapi.map.MarkerOptions
-import com.baidu.mapapi.map.BitmapDescriptorFactory
+import com.baidu.mapapi.map.*
 import com.baidu.mapapi.model.LatLng
 import org.jetbrains.anko.image
 import org.jetbrains.anko.startActivity
 
 
 class TransportCar : AppCompatActivity() {
-    lateinit var baiduMap: BaiduMap
-    lateinit var mLocationClient: LocationClient
-    var mapView: MapView? = null
+    private lateinit var baiduMap: BaiduMap
+    private lateinit var mLocationClient: LocationClient
+    private var mapView: MapView? = null
+    private var isFirstLocate = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.transport_car)
@@ -48,7 +46,7 @@ class TransportCar : AppCompatActivity() {
         }
         img_car_scan.setOnClickListener {
             val intent = Intent(this, ScanHome::class.java)
-            intent.putExtra("type","Car")
+            intent.putExtra("type", "Car")
             startActivity(intent)
         }
         mapView = map_transport_car
@@ -121,10 +119,14 @@ class TransportCar : AppCompatActivity() {
                 // 此处设置开发者获取到的方向信息，顺时针0-360
                 .direction(location.direction).latitude(location.latitude)
                 .longitude(location.longitude).build()
-            location.altitude
-            location.latitude
-            location.locationWhere
-            baiduMap.setMyLocationData(locData)
+            if (isFirstLocate) {
+                isFirstLocate = false
+                val ll = LatLng(location.latitude, location.longitude)
+                val builder = MapStatus.Builder()
+                builder.target(ll).zoom(18.0f)
+                baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()))
+                baiduMap.setMyLocationData(locData)
+            }
         }
     }
 }

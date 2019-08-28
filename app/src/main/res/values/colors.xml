@@ -11,4 +11,5 @@
     <color name="colorOTOGreen">#1EB81E</color>
     <color name="colorOTOBlue">#3D83D6</color>
     <color name="colorOTOBackground">#F8F8F8</color>
+    <color name="locationRed">#D81E06</color>
 </resources>
