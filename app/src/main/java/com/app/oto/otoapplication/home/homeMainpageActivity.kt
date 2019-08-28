@@ -12,6 +12,7 @@ import com.baidu.location.LocationClient
 import com.baidu.location.LocationClientOption
 import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapView
+import kotlinx.android.synthetic.main.navigation_layout.*
 
 class homeMainpageActivity: BaseActivity() {
     private lateinit var mMapView: MapView
@@ -41,6 +42,9 @@ class homeMainpageActivity: BaseActivity() {
     }
 
     override fun initView() {
+        img_transport.setOnClickListener {
+
+        }
         mMapView = findViewById(R.id.map_home)
         mMap = mMapView.map
         mMap.mapType= BaiduMap.MAP_TYPE_SATELLITE

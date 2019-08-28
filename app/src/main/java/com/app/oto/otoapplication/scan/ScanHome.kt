@@ -41,7 +41,6 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
     override fun onStart() {
         super.onStart()
         requestCodeQRCodePermissions()
-
     }
 
     override fun onStop() {
