@@ -18,7 +18,7 @@ class MyBaggageActivity: BaseActivity() {
 
     override fun initView() {
         transport_home_navigation.apply {
-            img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
             setNavigationClickListener(this@MyBaggageActivity)
         }
     }
