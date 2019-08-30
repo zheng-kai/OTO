@@ -12,7 +12,8 @@ import android.arch.lifecycle.Observer
 fun View.setNavigationClickListener(packageContext: Context){
     val intent = Intent(packageContext, OTOActivity::class.java)
     img_home.setOnClickListener {
-
+        intent.putExtra("intentFlag", OTOActivity.INTENT_HOME_FLAG)
+        packageContext.startActivity(intent)
     }
     img_transport.setOnClickListener {
         intent.putExtra("intentFlag", OTOActivity.INTENT_TRANSPORT_FLAG)

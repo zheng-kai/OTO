@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.app.oto.otoapplication.home.HomeFragment
 import com.app.oto.otoapplication.personal.help.HelpActivity
 import com.app.oto.otoapplication.personal.main.PersonalFragment
+import com.app.oto.otoapplication.scan.ScanHome
 import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import com.app.oto.otoapplication.transport.TransportHomeFragment
 import kotlinx.android.synthetic.main.activity_oto.*
@@ -18,7 +20,7 @@ import org.jetbrains.anko.image
 
 class OTOActivity : AppCompatActivity() {
     lateinit var help: TextView
-    lateinit var img: ImageView
+    lateinit var scan: ImageView
 
     companion object {
         val INTENT_HOME_FLAG = "home"
@@ -46,18 +48,19 @@ class OTOActivity : AppCompatActivity() {
                 startActivity(Intent(this@OTOActivity, HelpActivity::class.java))
             }
         }
-        img = img_home_scan.apply {
+        scan = img_home_scan.apply {
             setOnClickListener {
-                startActivity(Intent(this@OTOActivity, ScanNormal::class.java))
+                startActivity(Intent(this@OTOActivity, ScanHome::class.java))
             }
         }
 
+        scan.visibility = View.VISIBLE
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container_home, TransportHomeFragment.newInstance(), "fTransport")
+            .add(R.id.fragment_container_home, HomeFragment.newInstance(), "fHome")
             .commit()
         transport_home_navigation.apply {
             // 初始化界面
-            img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+            img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
             // 设置fragment跳转监听
             img_transport.setOnClickListener {
                 replaceTransportFragment()
@@ -80,6 +83,18 @@ class OTOActivity : AppCompatActivity() {
     }
 
     private fun replaceHomeFragment() {
+        help.visibility = View.GONE
+        scan.visibility = View.VISIBLE
+        img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+        img_personal.image = ResourcesCompat.getDrawable(resources, R.mipmap.personal, null)
+        img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport, null)
+        val fragment =
+            this@OTOActivity.supportFragmentManager.findFragmentByTag("fHome")
+                ?: HomeFragment.newInstance()
+
+        this@OTOActivity.supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container_home, fragment, "fHome")
+            .commit()
 
     }
 
@@ -99,7 +114,7 @@ class OTOActivity : AppCompatActivity() {
 
     private fun replaceTransportFragment() {
         help.visibility = View.GONE
-        img.visibility = View.GONE
+        scan.visibility = View.GONE
         img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home, null)
         img_personal.image = ResourcesCompat.getDrawable(resources, R.mipmap.personal, null)
         img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)

@@ -34,8 +34,8 @@ companion object {
         val message = mview.main_message
         val send = mview.main_send
         val myBaggage = mview.main_my_baggage
-        mapView = map_home
-        baiduMap = map_transport_car.map
+        mapView = mview.map_home
+        baiduMap = mview.map_home.map
         baiduMap.isTrafficEnabled = true
         baiduMap.isMyLocationEnabled = true
         baiduMap.setOnMarkerClickListener {
@@ -72,9 +72,9 @@ companion object {
         //开启地图定位图层
         mLocationClient.start()
 
-        mview.scanner.setOnClickListener {
-            startActivity(Intent(CommonContext.application,ScanNormal::class.java))
-        }
+        //mview.scanner.setOnClickListener {
+        //   startActivity(Intent(CommonContext.application,ScanNormal::class.java))
+        //}
         message.setOnClickListener {
             startActivity(Intent(CommonContext.application,MessageActivity::class.java))
         }

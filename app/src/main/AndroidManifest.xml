@@ -43,15 +43,6 @@
         </activity>
 
 
-        <activity android:name=".home.homeMainpageActivity"
-                  android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-
-        </activity>
         <activity android:name=".home.MessageActivity"/>
         <activity android:name=".home.MyBaggageActivity"/>
         <activity android:name=".home.SendActivity"/>
@@ -59,8 +50,13 @@
 
 
         <activity android:name=".OTOActivity"
-                android:launchMode="singleTask"
-        />
+                android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <!--<activity android:name=".transport.TransportHome"/>-->
 

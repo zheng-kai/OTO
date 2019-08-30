@@ -13,7 +13,7 @@ import com.baidu.location.LocationClientOption
 import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapView
 import kotlinx.android.synthetic.main.navigation_layout.*
-
+/*
 class homeMainpageActivity: BaseActivity() {
     private lateinit var mMapView: MapView
     private lateinit var mMap:BaiduMap
@@ -75,10 +75,11 @@ class homeMainpageActivity: BaseActivity() {
     }
 
     override fun initToolbar() {
-        findViewById<ImageView>(R.id.scanner).setOnClickListener {
-            startActivity(getMyIntent(this,ScanHome::class.java))
-        }
+        //findViewById<ImageView>(R.id.scanner).setOnClickListener {
+        //    startActivity(getMyIntent(this,ScanHome::class.java))
+        //}
     }
 
 
 }
+*/

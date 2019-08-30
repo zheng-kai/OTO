@@ -24,8 +24,8 @@ class SendActivity:BaseActivity() {
     findViewById<TextView>(R.id.send_confirm).setOnClickListener {
         startActivity(getMyIntent(this,senddetailActivity::class.java))
     }
-        transport_car_navigation.apply {
-            img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
+        transport_home_navigation.apply {
+            img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
             setNavigationClickListener(this@SendActivity)
         }
     }
