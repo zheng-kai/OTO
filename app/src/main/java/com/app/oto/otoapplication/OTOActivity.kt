@@ -39,9 +39,7 @@ class OTOActivity : AppCompatActivity() {
         setContentView(R.layout.activity_oto)
         setIntentData(intent)
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-
 //        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-
 //        }
         help = tv_home_help.apply {
             setOnClickListener {
