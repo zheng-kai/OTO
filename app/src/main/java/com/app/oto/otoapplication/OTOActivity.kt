@@ -97,6 +97,7 @@ class OTOActivity : AppCompatActivity() {
     }
 
     private fun replacePersonalFragment() {
+        scan.visibility = View.GONE
         help.visibility = View.VISIBLE
         img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home, null)
         img_personal.image = ResourcesCompat.getDrawable(resources, R.mipmap.personal_clicked, null)
