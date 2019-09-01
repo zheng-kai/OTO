@@ -41,7 +41,12 @@
         </activity>
         <activity android:name=".personal.help.HelpActivity">
         </activity>
-        <activity android:name=".personal.main.PersonalActivity"/>
+
+
+        <activity android:name=".home.MessageActivity"/>
+        <activity android:name=".home.MyBaggageActivity"/>
+        <activity android:name=".home.SendActivity"/>
+        <activity android:name=".home.senddetailActivity"/>
 
 
         <activity android:name=".OTOActivity"
@@ -55,7 +60,7 @@
 
         <!--<activity android:name=".transport.TransportHome"/>-->
 
-        <activity android:name=".transport.TransportHome"/>
+
         <activity android:name=".transport.TransportCar"/>
         <activity android:name=".transport.TransportCrowdsource"/>
         <activity android:name=".transport.TransportOrdered"/>

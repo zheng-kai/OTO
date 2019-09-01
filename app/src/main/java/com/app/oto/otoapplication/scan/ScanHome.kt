@@ -13,8 +13,12 @@ import android.os.Vibrator
 import android.util.Log
 import android.widget.Toast
 import cn.bingoogolapple.qrcode.core.BarcodeType
+import com.app.oto.otoapplication.commons.setNavigationClickListener
+import com.app.oto.otoapplication.scan.car_user.ScanCar
+import com.app.oto.otoapplication.scan.crowdsource_user.ScanCrowdsource
 import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import org.jetbrains.anko.image
+import org.jetbrains.anko.startActivity
 import pub.devrel.easypermissions.EasyPermissions
 
 
@@ -26,6 +30,7 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
         setContentView(R.layout.home_activity_scan)
         scan_home_navigation.apply {
             img_home.image = ResourcesCompat.getDrawable(resources, R.mipmap.home_clicked, null)
+            setNavigationClickListener(this@ScanHome)
         }
         img_scan_back.setOnClickListener {
             onBackPressed()
@@ -36,7 +41,6 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
     override fun onStart() {
         super.onStart()
         requestCodeQRCodePermissions()
-
     }
 
     override fun onStop() {
@@ -58,10 +62,13 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
         Toast.makeText(this, result, Toast.LENGTH_LONG).show()
         vibrate()
         Log.d("scanResult", result)
-        val intent = Intent(this,ScanNormal::class.java)
-        intent.putExtra("title",result)
+        val intent = when (intent.getStringExtra("type")) {
+            "Car" -> Intent(this, ScanCar::class.java)
+            "CrowdSource" -> Intent(this, ScanCrowdsource::class.java)
+            else -> Intent(this, ScanNormal::class.java)
+        }
+        intent.putExtra("result", result)
         startActivity(intent)
-        zx_scan.startSpot() // 开始识别
     }
 
     override fun onCameraAmbientBrightnessChanged(isDark: Boolean) {
@@ -100,11 +107,16 @@ class ScanHome : AppCompatActivity(), QRCodeView.Delegate, EasyPermissions.Permi
 //        Toast.makeText(this,"扫码功能无法使用，请授予权限",Toast.LENGTH_LONG).show()
     }
 
-//    @AfterPermissionGranted(REQUEST_CODE_QRCODE_PERMISSIONS)
+    //    @AfterPermissionGranted(REQUEST_CODE_QRCODE_PERMISSIONS)
     private fun requestCodeQRCodePermissions() {
         val perms = arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.READ_EXTERNAL_STORAGE)
         if (!EasyPermissions.hasPermissions(this, *perms)) {
             EasyPermissions.requestPermissions(this, "扫描二维码需要打开相机和散光灯的权限", REQUEST_CODE_QRCODE_PERMISSIONS, *perms)
+        }else{
+            zx_scan.startCamera() // 打开后置摄像头开始预览，但是并未开始识别
+            //        mZXingView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT); // 打开前置摄像头开始预览，但是并未开始识别
+            zx_scan.setType(BarcodeType.TWO_DIMENSION, null) // 只识别二维条码
+            zx_scan.startSpotAndShowRect() // 显示扫描框，并开始识别
         }
     }
 }

@@ -1,66 +1,48 @@
-package com.app.oto.otoapplication.transport
+package com.app.oto.otoapplication.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import cn.edu.twt.retrox.recyclerviewdsl.withItems
-import com.app.oto.otoapplication.OTOActivity
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.app.oto.otoapplication.R
-import com.app.oto.otoapplication.commons.setNavigationClickListener
-import com.app.oto.otoapplication.scan.ScanHome
+import com.app.oto.otoapplication.commons.CommonContext
+import com.app.oto.otoapplication.scan.nomal_user.ScanNormal
 import com.baidu.location.BDAbstractLocationListener
 import com.baidu.location.BDLocation
-import kotlinx.android.synthetic.main.navigation_layout.view.*
-import kotlinx.android.synthetic.main.transport_car.*
-import com.baidu.location.LocationClientOption
 import com.baidu.location.LocationClient
-import com.baidu.mapapi.map.BaiduMap
-import com.baidu.mapapi.map.MapView
-import com.baidu.mapapi.map.MyLocationData
-import com.baidu.mapapi.map.MarkerOptions
-import com.baidu.mapapi.map.BitmapDescriptorFactory
+import com.baidu.location.LocationClientOption
+import com.baidu.mapapi.map.*
 import com.baidu.mapapi.model.LatLng
-import org.jetbrains.anko.image
-import org.jetbrains.anko.startActivity
+import kotlinx.android.synthetic.main.activity_home_main.*
+import kotlinx.android.synthetic.main.activity_home_main.view.*
+import kotlinx.android.synthetic.main.transport_car.*
 
-
-class TransportCar : AppCompatActivity() {
+class HomeFragment: Fragment(){
     lateinit var baiduMap: BaiduMap
     lateinit var mLocationClient: LocationClient
     var mapView: MapView? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.transport_car)
-        img_car_back.setOnClickListener {
-            onBackPressed()
-        }
-        transport_car_navigation.apply {
-            img_transport.image = ResourcesCompat.getDrawable(resources, R.mipmap.transport_clicked, null)
-            setNavigationClickListener(this@TransportCar)
-        }
-        rec_transport_car.layoutManager = LinearLayoutManager(this)
-        rec_transport_car.withItems {
-            for (i in 1..5) {
-                add("xxxxx", "A", "$i 元")
-            }
-        }
-        img_car_scan.setOnClickListener {
-            val intent = Intent(this, ScanHome::class.java)
-            intent.putExtra("type","Car")
-            startActivity(intent)
-        }
-        mapView = map_transport_car
-        baiduMap = map_transport_car.map
+companion object {
+ fun newInstance():HomeFragment{
+     return HomeFragment()
+ }
+}
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val mview = inflater.inflate(R.layout.activity_home_main,container,false)
+        val message = mview.main_message
+        val send = mview.main_send
+        val myBaggage = mview.main_my_baggage
+        mapView = mview.map_home
+        baiduMap = mview.map_home.map
         baiduMap.isTrafficEnabled = true
         baiduMap.isMyLocationEnabled = true
         baiduMap.setOnMarkerClickListener {
-
             false
         }
         //定位初始化
-        mLocationClient = LocationClient(this)
+        mLocationClient = LocationClient(CommonContext.application)
 
         //通过LocationClientOption设置LocationClient相关参数
         val option = LocationClientOption()
@@ -89,6 +71,20 @@ class TransportCar : AppCompatActivity() {
         baiduMap.addOverlay(markOption)
         //开启地图定位图层
         mLocationClient.start()
+
+        //mview.scanner.setOnClickListener {
+        //   startActivity(Intent(CommonContext.application,ScanNormal::class.java))
+        //}
+        message.setOnClickListener {
+            startActivity(Intent(CommonContext.application,MessageActivity::class.java))
+        }
+        send.setOnClickListener {
+            startActivity(Intent(CommonContext.application,SendActivity::class.java))
+        }
+        myBaggage.setOnClickListener {
+            startActivity(Intent(CommonContext.application,MyBaggageActivity::class.java))
+        }
+        return mview
     }
 
     override fun onResume() {
@@ -126,4 +122,7 @@ class TransportCar : AppCompatActivity() {
             baiduMap.setMyLocationData(locData)
         }
     }
+
+
+
 }
