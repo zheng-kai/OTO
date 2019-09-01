@@ -32,6 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
         <Button
+                android:onClick=""
                 android:background="@mipmap/personal_clicked"
                 android:id="@+id/btn_personal_clicked"
                 android:layout_gravity="center"

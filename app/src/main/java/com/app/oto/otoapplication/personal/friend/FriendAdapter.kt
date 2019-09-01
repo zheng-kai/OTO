@@ -52,10 +52,20 @@ class FriendAdapter(context: Context) : BaseRVAdapter(context) {
             }
             ADD_TYPE -> {
                 (viewHolder as AddHolder).addBtn.setOnClickListener {
+                    val popupView = layoutInflater.inflate(R.layout.personal_friend_popup, null)
                     val popupWindow =
-                        PopupWindow(layoutInflater.inflate(R.layout.personal_friend_popup, null),
-                            ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT)
-                    popupWindow.showAtLocation(layoutInflater.inflate(R.layout.personal_friend_popup,null),Gravity.CENTER,0,0)
+                        PopupWindow(
+                            popupView,
+                            1000,
+                            500
+                        )
+                    popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
+                    popupView.findViewById<ImageButton>(R.id.delete).setOnClickListener {
+                        popupWindow.dismiss()
+                    }
+                    popupView.findViewById<View>(R.id.btn).setOnClickListener {
+                        popupWindow.dismiss()
+                    }
                 }
             }
         }
