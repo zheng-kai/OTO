@@ -8,6 +8,7 @@
     <ScrollView
             android:background="@color/colorOTOBackground"
             android:layout_marginTop="48dp"
+
             android:layout_marginBottom="48dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
